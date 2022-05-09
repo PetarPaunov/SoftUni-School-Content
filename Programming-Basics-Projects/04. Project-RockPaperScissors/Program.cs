@@ -6,9 +6,9 @@ namespace RockPaperScissors
     {
         public static void Main()
         {
-            const string rock = "Rock";
-            const string paper = "Paper";
-            const string scissors = "Scissors";
+            const string Rock = "Rock";
+            const string Paper = "Paper";
+            const string Scissors = "Scissors";
 
             Random random = new Random();
             int computerRandomNumber = random.Next(1, 4);
@@ -20,27 +20,27 @@ namespace RockPaperScissors
             switch (computerRandomNumber)
             {
                 case 1:
-                    computerMove = rock;
+                    computerMove = Rock;
                     break;
                 case 2:
-                    computerMove = paper;
+                    computerMove = Paper;
                     break;
                 case 3:
-                    computerMove = scissors;
+                    computerMove = Scissors;
                     break;
             }
 
             if (playerMove == "r" || playerMove == "rock")
             {
-                playerMove = rock;
+                playerMove = Rock;
             }
             else if (playerMove == "p" || playerMove == "paper")
             {
-                playerMove = paper;
+                playerMove = Paper;
             }
             else if (playerMove == "s" || playerMove == "scissors")
             {
-                playerMove = scissors;
+                playerMove = Scissors;
             }
             else
             {
@@ -50,23 +50,21 @@ namespace RockPaperScissors
 
             Console.WriteLine($"The computer chose {computerMove}.");
 
-            switch (playerMove, computerMove)
+            if ((playerMove == Rock && computerMove == Scissors) ||
+                (playerMove == Paper && computerMove == Rock) ||
+                (playerMove == Scissors && computerMove == Paper))
             {
-                case (rock, paper):
-                case (paper, scissors):
-                case (scissors, rock):
-                    Console.WriteLine("You lose.");
-                    break;
-
-                case (rock, scissors):
-                case (paper, rock):
-                case (scissors, paper):
-                    Console.WriteLine("You win.");
-                    break;
-
-                default:
-                    Console.WriteLine("This game was a draw.");
-                    break;
+                Console.WriteLine("You win.");
+            }
+            else if ((playerMove == Rock && computerMove == Paper) ||
+                    (playerMove == Paper && computerMove == Scissors) ||
+                    (playerMove == Scissors && computerMove == Rock))
+            {
+                Console.WriteLine("You lose.");
+            }
+            else
+            {
+                Console.WriteLine("This game was a draw.");
             }
         }
     }

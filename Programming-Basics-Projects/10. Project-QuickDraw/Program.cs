@@ -103,7 +103,7 @@ namespace QuickDraw
 
                 while (stopwatch.Elapsed < signal && !isTooFast)
                 {
-                    if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Spacebar)
+                    if (Console.KeyAvailable && Console.ReadKey().Key == ConsoleKey.Spacebar)
                     {
                         isTooFast = true;
                     }
@@ -120,7 +120,7 @@ namespace QuickDraw
 
                 while (!isTooFast && stopwatch.Elapsed < requiredReactionTime && isTooSlow)
                 {
-                    if (Console.KeyAvailable && Console.ReadKey(true).Key is ConsoleKey.Spacebar)
+                    if (Console.KeyAvailable && Console.ReadKey().Key is ConsoleKey.Spacebar)
                     {
                         isTooSlow = false;
                         reactionTime = stopwatch.Elapsed;
