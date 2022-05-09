@@ -18,7 +18,13 @@ The computer selects a **random number**, then returns information whether the n
 
 ## Screenshots
 
-<img alt="Image" width="500px" src="https://user-images.githubusercontent.com/1689586/167417031-f47473e8-a0cf-4f0b-bc92-18d717a29305.png" />
+<img alt="Image" width="450px" src="https://user-images.githubusercontent.com/85368212/167501840-8692fbe3-78d0-416e-a2ec-548516cff43e.png" />
+
+<img alt="Image" width="450px" src="https://user-images.githubusercontent.com/85368212/167501993-b7e4e5f5-5588-40af-9460-87a70a998942.png" />
+
+<img alt="Image" width="450px" src="https://user-images.githubusercontent.com/85368212/167502027-a87f60b9-9724-4603-a2bb-17db37f3767e.png" />
+
+<img alt="Image" width="450px" src="https://user-images.githubusercontent.com/85368212/167502072-62f04eb0-9330-458f-a62f-c4c650985434.png" />
 
 ## Live Demo
 
