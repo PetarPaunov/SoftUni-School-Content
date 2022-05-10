@@ -30,5 +30,4 @@ The computer selects a **random number**, then returns information whether the n
 
 You can play the game directly in your Web browser here:
 
-[<img alt="Play Button" width="150px" src="http://clipart-library.com/images/kcKBGL6gi.png" />](https://replit.com/@PetarPaunov/Guess-A-Number#)
-
+[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/167706022-5128fd5d-d315-4eb9-9001-3bf9008cd91e.png" />](https://replit.com/@PetarPaunov/Guess-A-Number#)
