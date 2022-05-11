@@ -54,6 +54,6 @@ We handle all these situations using a series of checks.
 
 You can play the game directly in your Web browser here:
 
-[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/167706726-d027f056-fc2b-47b7-bfad-8ff8a3aa7688.png" />](https://replit.com/@PetarPaunov/Rock-Paper-Scissors#)
+[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/167706726-d027f056-fc2b-47b7-bfad-8ff8a3aa7688.png" />](https://replit.com/@PetarPaunov/Rock-Paper-Scissors-Game#Main.cs)
 
 
