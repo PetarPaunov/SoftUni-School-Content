@@ -14,7 +14,7 @@ Choose **number** between `1` and `100`, then press `Enter`.
 
 The computer selects a **random number**, then returns information whether the number is **less than**, **greater than**, or **equal** to the selected **number**.
 
-[Sorce Code](https://github.com/PetarPaunov/SoftUni-School-Content/blob/main/Programming-Basics-Projects/04.%20Project-Rock-Paper-Scissors/Program.cs)
+[Sorce Code](GuessANumber.cs)
 
 ## Screenshots
 
