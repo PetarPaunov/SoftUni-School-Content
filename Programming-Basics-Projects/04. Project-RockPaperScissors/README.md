@@ -36,7 +36,7 @@ The computer chooses a **random option**, then reveals the **winner**.
 
 We handle all these situations using a series of checks.
 
-[Sorce Code](https://github.com/PetarPaunov/SoftUni-School-Content/blob/main/Programming-Basics-Projects/04.%20Project-Rock-Paper-Scissors/Program.cs)
+[Sorce Code](RockPaperScissors.cs)
 
 ## Screenshots
 
