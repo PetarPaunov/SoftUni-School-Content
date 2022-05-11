@@ -28,7 +28,7 @@ After the game:
 - `1`: If you want to play again
 - `2`: If you want to stop the game
 
-[Sorce Code](https://github.com/PetarPaunov/SoftUni-School-Content/blob/main/Programming-Basics-Projects/10.%20Project-QuickDraw/Program.cs)
+[Sorce Code](QuickDraw.cs)
 
 ## Screenshots
 
