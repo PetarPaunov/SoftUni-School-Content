@@ -48,5 +48,5 @@ After the game:
 
 You can play the game directly in your Web browser here:
 
-[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/167706957-ab62dfde-9adc-4e7a-9ef8-e798f1c36c62.png" />](https://replit.com/@PetarPaunov/QuickDraw-Shooting-Game#Program.cs)
+[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/167706957-ab62dfde-9adc-4e7a-9ef8-e798f1c36c62.png" />](https://replit.com/@PetarPaunov/QuickDraw-Shooting-Game#Main.cs)
 
