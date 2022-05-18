@@ -16,26 +16,25 @@ namespace GuessANumber
                 string playerInput = Console.ReadLine();
                 bool isValid = int.TryParse(playerInput, out int playerNumber);
 
-                if (!isValid)
+                if (isValid)
                 {
-                    Console.WriteLine("Invalid input.");
-                    continue;
-                }
-                else if (playerNumber == computerNumer)
-                {
-                    Console.WriteLine("You guessed it!");
-                    break;
-                }
-                else
-                {
-                    if (playerNumber > computerNumer)
+                    if (playerNumber == computerNumer)
+                    {
+                        Console.WriteLine("You guessed it!");
+                        break;
+                    }
+                    else if (playerNumber > computerNumer)
                     {
                         Console.WriteLine("Too High");
                     }
                     else
                     {
                         Console.WriteLine("Too Low");
-                    }
+                    }   
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input.");
                 }
             }
         }

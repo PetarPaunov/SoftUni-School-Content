@@ -5,26 +5,29 @@ string[] nouns = { "stones", "cake", "apple", "laptop", "bikes" };
 string[] adverbs = { "slowly", "diligently", "warmly", "sadly", "rapidly" };
 string[] details = { "near the river", "at home", "in the park" };
 
+Console.WriteLine("Hello, this is your first random-generated sentence: ");
+
 while (true)
 {
-    string name = GetRndomWord(names);
-    string place = GetRndomWord(places);
-    string verb = GetRndomWord(verbs);
-    string noun = GetRndomWord(nouns);
-    string adverb = GetRndomWord(adverbs);
-    string detail = GetRndomWord(details);
+    string name = GetRandomWord(names);
+    string place = GetRandomWord(places);
+    string verb = GetRandomWord(verbs);
+    string noun = GetRandomWord(nouns);
+    string adverb = GetRandomWord(adverbs);
+    string detail = GetRandomWord(details);
 
     string who = $"{name} from {place}";
     string action = $"{adverb} {verb} {noun}";
     string sentence = $"{who} {action} {detail}.";
 
     Console.WriteLine(sentence);
+    Console.Write(Environment.NewLine + "Click [Enter] to generate a new one.");
 
     Console.ReadLine();
 }
 
 
-string GetRndomWord(string[] words)
+string GetRandomWord(string[] words)
 {
     Random random = new Random();
     string word = words[random.Next(words.Length)];
