@@ -22,4 +22,19 @@ The **Generator** is based on the following **model**:
     
   - **Details** = {near the river, at home, in the park}
 
-TODO....
+[Sorce Code](RandomSentencesGenerator.cs)
+
+## Screenshots
+
+![Screenshot_2](https://user-images.githubusercontent.com/85368212/169245274-d0a89505-f320-4782-bee8-1d416552d759.png)
+
+![Screenshot_3](https://user-images.githubusercontent.com/85368212/169245287-cfb08caf-3b09-4384-af26-60789662683f.png)
+
+![Screenshot_4](https://user-images.githubusercontent.com/85368212/169245308-115e483c-d0f0-489a-9870-678fbb94aa26.png)
+
+
+## Live Demo
+
+You can try the generator directly in your Web browser here:
+
+[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/169246359-bc946e73-2c4f-42ff-b980-fe0c229f35c9.png" />](https://replit.com/@PetarPaunov/Random-Sentences-Generator#Main.cs)
