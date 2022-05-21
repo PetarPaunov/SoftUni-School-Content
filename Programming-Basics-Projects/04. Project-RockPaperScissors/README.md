@@ -36,7 +36,7 @@ The computer chooses a **random option**, then reveals the **winner**.
 
 We handle all these situations using a series of checks.
 
-[Sorce Code](RockPaperScissors.cs)
+[Source Code](RockPaperScissors.cs)
 
 ## Screenshots
 
