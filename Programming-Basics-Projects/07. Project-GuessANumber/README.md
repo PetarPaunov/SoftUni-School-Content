@@ -14,7 +14,7 @@ Choose **number** between `1` and `100`, then press `Enter`.
 
 The computer selects a **random number**, then returns information whether the number is **less than**, **greater than**, or **equal** to the selected **number**.
 
-[Sorce Code](GuessANumber.cs)
+[Source Code](GuessANumber.cs)
 
 ## Screenshots
 
