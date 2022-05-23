@@ -1,5 +1,5 @@
 # GUI "Currency Converter" App
-Simple **Windonws Froms App** C# implementation of **Currency Converter**
+Simple **Windows Forms App** C# implementation of **Currency Converter**
 
 <img alt="Image" src="https://user-images.githubusercontent.com/85368212/169101075-ae783a55-9c39-4ec4-9013-d246f2c26b03.png" />
 
@@ -10,7 +10,7 @@ This is a **graphical application** (GUI application) that **calculates** the va
     - The amout is fixed, it can be between `-10000` and `10000`
  - The application will show the result after conversion
 
-[Form Sorce Core](ConverterForm.cs)
+[Form Source Core](ConverterForm.cs)
 
 ## Screenshots
 
