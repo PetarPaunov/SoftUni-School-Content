@@ -2,13 +2,7 @@
 
 A console-based C# implementation of the "**Gunblood**" game.
 
-
-							 
-                       _O                          O_               |                                            > ╗__O 
-                     |/|_          wait          _|\|               |              //            Too Slow           / \
-                     /\                            /\               |             O/__/\         You Lose          /\
-                    /  |                          |  \              |                  \                          |  \
-        ------------------------------------------------------      |       ------------------------------------------------------    
+<img alt="Image" width="450px" src="https://user-images.githubusercontent.com/85368212/170069870-23ea2349-cd85-4f7f-a26b-f18d94b55497.png" />
 	
 Quick Draw is a **reaction** time test game. After choosing the level of **difficulty** you face your **opponent** (the computer), wait for the **signal**, then shoot with your gun as **fast** as possible. Only a true **gunslinger** will survive all of these **epic duels**! How long will you last once you start playing Quick Draw?
 
