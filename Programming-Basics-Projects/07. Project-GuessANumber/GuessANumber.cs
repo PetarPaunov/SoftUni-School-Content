@@ -6,6 +6,7 @@ namespace GuessANumber
     {
         public static void Main()
         {
+            //test
             Random randomNumber = new Random();
             int computerNumer = randomNumber.Next(1, 101);
 
