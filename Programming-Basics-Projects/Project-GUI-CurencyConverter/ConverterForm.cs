@@ -10,7 +10,7 @@ namespace CurencyConverter
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ConvertCurrency(object sender, EventArgs e)
         {
             decimal bgn = this.amount.Value;
             decimal eur = bgn / 1.95583m;

@@ -21,13 +21,12 @@ while (true)
     string sentence = $"{who} {action} {detail}.";
 
     Console.WriteLine(sentence);
-    Console.Write(Environment.NewLine + "Click [Enter] to generate a new one.");
+    Console.WriteLine("Click [Enter] to generate a new one.");
 
     Console.ReadLine();
 }
 
-
-string GetRandomWord(string[] words)
+static string GetRandomWord(string[] words)
 {
     Random random = new Random();
     string word = words[random.Next(words.Length)];

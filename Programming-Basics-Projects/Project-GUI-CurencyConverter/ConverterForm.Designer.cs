@@ -87,7 +87,7 @@
             this.resultButton.TabIndex = 5;
             this.resultButton.Text = "Convert";
             this.resultButton.UseVisualStyleBackColor = true;
-            this.resultButton.Click += new System.EventHandler(this.button1_Click);
+            this.resultButton.Click += new System.EventHandler(this.ConvertCurrency);
             // 
             // ConverterForm
             // 
