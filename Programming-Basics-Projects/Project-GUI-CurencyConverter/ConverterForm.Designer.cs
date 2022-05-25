@@ -1,4 +1,4 @@
-﻿namespace CurencyConverter
+﻿namespace CurrencyConverter
 {
     partial class ConverterForm
     {
@@ -101,7 +101,7 @@
             this.MaximumSize = new System.Drawing.Size(400, 170);
             this.MinimumSize = new System.Drawing.Size(400, 170);
             this.Name = "ConverterForm";
-            this.Text = "CurencyConverter";
+            this.Text = "CurrencyConverter";
             ((System.ComponentModel.ISupportInitialize)(this.amount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

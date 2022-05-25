@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace CurencyConverter
+namespace CurrencyConverter
 {
     public partial class ConverterForm : Form
     {
