@@ -7,7 +7,7 @@ This is a **graphical application** (GUI application) that **calculates** the va
 
 ## Input and Output
  - Enter the amount for conversion
-    - The amout is fixed, it can be between `-10000` and `10000`
+    - The amount is fixed, it can be between `-10000` and `10000`
  - The application will show the result after conversion
 
 [Form Source Core](ConverterForm.cs)
