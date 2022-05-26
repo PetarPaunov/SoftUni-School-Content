@@ -21,7 +21,7 @@ This is a **graphical application** (GUI application) that **calculates** the va
     - The amount is fixed, it can be between `-10000` and `10000`
  - The application will show the result after conversion
 
-[Form Source Core](ConverterForm.cs)
+[Form Source Core](ConvertionForm.cs)
 
 ## Screenshots
 
