@@ -3,7 +3,7 @@ Simple **Windows Forms App** C# implementation of **Currency Converter**
 
 <img alt="Image" src="https://user-images.githubusercontent.com/85368212/169101075-ae783a55-9c39-4ec4-9013-d246f2c26b03.png" />
 
-This is a **graphical application** (GUI application) that **calculates** the value in **Euro** (EUR) of **monetary** amount given in **Bulgarian levs** (BGN). By **changing** the amount in **BGN**, the amount in **EUR** has to be **recalculated** automatically (used a fixed rate BGN / EUR: 1.95583).
+This is a **graphical application** (GUI application) that **calculates** the value in **Euro** (EUR) of **monetary** amount given in **Bulgarian levs** (BGN). By **changing** the amount in **BGN**, the amount in **EUR** has to be **recalculated** after clicking on the button **Convert** (used a fixed rate BGN / EUR: 1.95583).
 
 ## Settings of the Format and the Separate Controls
 
