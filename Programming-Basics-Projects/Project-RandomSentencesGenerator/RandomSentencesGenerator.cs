@@ -1,4 +1,4 @@
-﻿string[] names = { "Peter", "Michell", "Jane", "Steve", };
+﻿string[] names = { "Peter", "Michell", "Jane", "Steve" };
 string[] places = { "Sofiq", "Plovdiv", "Varna", "Burags" };
 string[] verbs = { "eats", "holds", "sees", "plays with", "brings" };
 string[] nouns = { "stones", "cake", "apple", "laptop", "bikes" };
