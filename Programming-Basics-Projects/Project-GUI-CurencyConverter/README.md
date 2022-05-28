@@ -11,7 +11,7 @@ This is a **graphical application** (GUI application) that **calculates** the va
 | Setting                         |  Picture                 |
 | --------------------------------|:------------------------:| 
 | **FormConverter**:<br>Text = "CurrencyConverter",<br>Font.Size = 12,<br>MaximizeBox = False,<br>MinimizeBox = False,<br>FormBorderStyle = FixedSingle<br>|               <img alt="Image" width="400" src="https://user-images.githubusercontent.com/85368212/170547642-d30f7845-3a77-4265-81f7-f0d16846d399.png" />                
-| **numericUpDownAmount**:<br>Value = 1, <br>Minimum = -10000,<br> Maximum = 10000,<br>TextAlign = Left,<br>DecimalPlaces = 2<br>                    |                     <img alt="Image" width="200" src="https://user-images.githubusercontent.com/85368212/170549033-4fb214e8-8338-4c8b-9c4c-26c7ba025519.png" />   
+| **numericUpDownAmount**:<br>Value = 1, <br>Minimum = 10000,<br> Maximum = -10000,<br>TextAlign = Left,<br>DecimalPlaces = 2<br>                    |                     <img alt="Image" width="200" src="https://user-images.githubusercontent.com/85368212/170549033-4fb214e8-8338-4c8b-9c4c-26c7ba025519.png" />   
 | **resultButton**:<br>Text = "Convert",<br>Size = Width:94, Height:29<br>               |                                                                                 <img alt="Image" width="125" src="https://user-images.githubusercontent.com/85368212/170549441-a131ea85-54d6-4641-9ba6-fc33b806d841.png" />   
 | **resultLable**:<br>AutoSize = False,<br>BackColor = PaleGreen,<br>Font.Size = 14,<br>Font.Bold = true<br>TextAlign = MiddleCenter,<br>|                                 ![Screenshot_5](https://user-images.githubusercontent.com/85368212/170481087-52654e32-dd34-4cae-981f-ffe76dcfec02.png)
 
