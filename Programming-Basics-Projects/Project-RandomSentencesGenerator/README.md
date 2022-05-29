@@ -37,4 +37,4 @@ The **Generator** is based on the following **model**:
 
 You can try the generator directly in your Web browser here:
 
-[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/169246359-bc946e73-2c4f-42ff-b980-fe0c229f35c9.png" />](https://replit.com/@PetarPaunov/Random-Sentences-Generator#Main.cs)
+[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/170882998-0ef5d9f0-9e1b-4990-adf0-3bdd180bcd9e.png" />](https://replit.com/@PetarPaunov/Random-Sentences-Generator#Main.cs)
