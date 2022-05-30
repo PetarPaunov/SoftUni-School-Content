@@ -1,5 +1,4 @@
-
-namespace CurrencyConverter
+namespace GUI_Currency_Converter
 {
     internal static class Program
     {
@@ -12,7 +11,7 @@ namespace CurrencyConverter
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new ConvertionForm());
+            Application.Run(new ConversionForm());
         }
     }
 }

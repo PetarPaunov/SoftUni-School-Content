@@ -1,6 +1,6 @@
-﻿namespace CurrencyConverter
+﻿namespace GUI_Currency_Converter
 {
-    partial class ConvertionForm
+    partial class ConversionForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.amount = new System.Windows.Forms.NumericUpDown();
+            this.amountNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.resultLable = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
             this.resultButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.amount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.amountNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // amount
             // 
-            this.amount.DecimalPlaces = 2;
-            this.amount.Location = new System.Drawing.Point(12, 24);
-            this.amount.Maximum = new decimal(new int[] {
+            this.amountNumericUpDown.DecimalPlaces = 2;
+            this.amountNumericUpDown.Location = new System.Drawing.Point(12, 24);
+            this.amountNumericUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.amount.Minimum = new decimal(new int[] {
+            this.amountNumericUpDown.Minimum = new decimal(new int[] {
             10000,
             0,
             0,
             -2147483648});
-            this.amount.Name = "amount";
-            this.amount.Size = new System.Drawing.Size(150, 27);
-            this.amount.TabIndex = 0;
-            this.amount.Value = new decimal(new int[] {
+            this.amountNumericUpDown.Name = "amount";
+            this.amountNumericUpDown.Size = new System.Drawing.Size(150, 27);
+            this.amountNumericUpDown.TabIndex = 0;
+            this.amountNumericUpDown.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -70,13 +70,13 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(279, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 18);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "BGN to EUR";
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label.Location = new System.Drawing.Point(279, 27);
+            this.label.Name = "label2";
+            this.label.Size = new System.Drawing.Size(94, 18);
+            this.label.TabIndex = 2;
+            this.label.Text = "BGN to EUR";
             // 
             // resultButton
             // 
@@ -94,12 +94,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 117);
             this.Controls.Add(this.resultButton);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label);
             this.Controls.Add(this.resultLable);
-            this.Controls.Add(this.amount);
+            this.Controls.Add(this.amountNumericUpDown);
             this.Name = "ConvertionForm";
             this.Text = "CurrencyConverterByPeter";
-            ((System.ComponentModel.ISupportInitialize)(this.amount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.amountNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,9 +107,9 @@
 
         #endregion
 
-        private NumericUpDown amount;
+        private NumericUpDown amountNumericUpDown;
         private Label resultLable;
-        private Label label2;
+        private Label label;
         private Button resultButton;
     }
 }
