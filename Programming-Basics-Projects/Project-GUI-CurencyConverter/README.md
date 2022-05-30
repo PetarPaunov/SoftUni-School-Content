@@ -22,7 +22,7 @@ This is a **graphical application** (GUI application) that **calculates** the va
     - The amount is fixed, it can be between `-10000` and `10000`
  - The application will show the result after conversion
 
-[Form Source Core](ConvertionForm.cs)
+[Form Source Core](ConversionForm.cs)
 
 ## Screenshots
 <kbd>![Screenshot_1](https://user-images.githubusercontent.com/85368212/170481680-258801e2-e182-4210-bfcc-ae8f1a7f37fd.png)</kbd>
