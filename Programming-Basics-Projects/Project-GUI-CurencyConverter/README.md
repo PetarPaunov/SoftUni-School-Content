@@ -30,3 +30,5 @@ This is a **graphical application** (GUI application) that **calculates** the va
 ![Screenshot_2](https://user-images.githubusercontent.com/85368212/171041238-0441afd1-d044-4ed9-a6ca-ab5c4d7151f7.png)
 
 ![Screenshot_2](https://user-images.githubusercontent.com/85368212/171041476-31305da7-475f-49fd-91c5-a105459927d0.png)
+
+Download: [here](https://github.com/PetarPaunov/SoftUni-School-Content/releases)
