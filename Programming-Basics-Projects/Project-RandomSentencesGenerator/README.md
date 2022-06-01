@@ -26,15 +26,14 @@ The **Generator** is based on the following **model**:
 
 ## Screenshots
 
-![Screenshot_2](https://user-images.githubusercontent.com/85368212/169245274-d0a89505-f320-4782-bee8-1d416552d759.png)
+![7](https://user-images.githubusercontent.com/85368212/171246377-40c24629-71f7-44be-ba44-494660deec85.png)
 
-![Screenshot_3](https://user-images.githubusercontent.com/85368212/169245287-cfb08caf-3b09-4384-af26-60789662683f.png)
+![5](https://user-images.githubusercontent.com/85368212/171243475-b155a08e-f4e9-4106-9b05-868ed1d28ad7.png)
 
-![Screenshot_4](https://user-images.githubusercontent.com/85368212/169245308-115e483c-d0f0-489a-9870-678fbb94aa26.png)
-
+![6](https://user-images.githubusercontent.com/85368212/171245531-23cedf88-78d8-4e5f-a201-def7e9492d6d.png)
 
 ## Live Demo
 
 You can try the generator directly in your Web browser here:
 
-[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/170882998-0ef5d9f0-9e1b-4990-adf0-3bdd180bcd9e.png" />](https://replit.com/@PetarPaunov/Random-Sentences-Generator#Main.cs)
+[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/171252376-1083cfd7-6e44-4439-8dd4-94ff212ce0bf.png" />](https://replit.com/@PetarPaunov/Random-Sentences-Generator#Main.cs)
