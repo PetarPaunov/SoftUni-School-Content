@@ -14,7 +14,7 @@ namespace GUI_Currency_Converter
             decimal amountBGN = this.amountNumericUpDown.Value;
             decimal amountEUR = amountBGN / ConversionCoefficient;
 
-            this.resultLable.Text = $"{amountBGN} BGN = {amountEUR:F2} EUR";
+            this.resultLabel.Text = $"{amountBGN} BGN = {amountEUR:F2} EUR";
         }
     }
 }
