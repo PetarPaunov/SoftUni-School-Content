@@ -398,7 +398,7 @@ while (true)
 
 	DrowOnTheConsole(frames, incorectGuess, wordToGuess, wordSymbols);
 
-	char playerSymbol = char.Parse(Console.ReadLine());
+	char playerLetter = char.Parse(Console.ReadLine());
 
 	while (true)
 	{
@@ -407,7 +407,7 @@ while (true)
 
 		for (int i = 0; i < wordSymbols.Length; i++)
 		{
-			if (playerSymbol == wordSymbols[i])
+			if (playerLetter == wordSymbols[i])
 			{
 				isContained = true;
 			}
@@ -417,10 +417,10 @@ while (true)
 		{
 			for (int i = 0; i < wordToGuessChar.Length; i++)
 			{
-				if (playerSymbol == wordSymbols[i])
+				if (playerLetter == wordSymbols[i])
 				{
 					guessCount++;
-					wordToGuessChar[i] = playerSymbol;
+					wordToGuessChar[i] = playerLetter;
 				}
 			}
 
@@ -452,7 +452,7 @@ while (true)
 			break;
 		}
 
-		playerSymbol = char.Parse(Console.ReadLine());
+		playerLetter = char.Parse(Console.ReadLine());
 	}
 
 	Console.Write("If you want to play again type 'yes' else type 'no': ");
