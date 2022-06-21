@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Threading;
-
 
 string[] frames =
 {
@@ -310,40 +308,40 @@ string[] deathAnimation =
 	@"      .   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@" __/══════╩═══",
-    //
-    @"      ╔═══╗   " + '\n' +
+
+	@"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
 	@"      .   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"      '   ║   " + '\n' +
 	@" __/══════╩═══",
-    //
-    @"      ╔═══╗   " + '\n' +
+
+	@"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"      '   ║   " + '\n' +
 	@"      _   ║   " + '\n' +
 	@" __/══════╩═══",
-    //
-    @"      ╔═══╗   " + '\n' +
+
+	@"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"      .   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@" __/══════╩═══",
-    //
-    @"      ╔═══╗   " + '\n' +
+
+	@"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"      '   ║   " + '\n' +
 	@" __/══════╩═══",
-    //
-    @"      ╔═══╗   " + '\n' +
+
+	@"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
 	@"          ║   " + '\n' +
@@ -361,8 +359,8 @@ const string Win = @"
 │   WWWWWWW    ii  N  NNN   │
 │    WW  W     ii  N   NN   │
 │                           │
-│         Good job          │
-│   you guessed the word!!  │
+│         Good job!         │
+│   You guessed the word!   │
 └───────────────────────────┘
 ";
 
@@ -374,14 +372,19 @@ const string Loss = @"
 │  LLL        OO    OO  SSSS   SSSS  │
 │  LLL        OO    OO     SS     SS │
 │  LLLLLLLLLL  OO  OO  SS  SS SS  SS │
-│   LLLLLLLLL   OOOO    SSSS   SSSS  |
+│   LLLLLLLLL   OOOO    SSSS   SSSS  │
 │                                    |
-│        You were so close           │
-│ next time you will guess the word!!│
+│        You were so close.          │
+│ Next time you will guess the word! │
 └────────────────────────────────────┘
 ";
+//Reading the words from the Words.txt file
+string currentDirectory = Directory.GetCurrentDirectory();
+string projectDirectory = Directory.GetParent(currentDirectory).Parent.Parent.FullName;
 
-string[] words = { "play", "jazz", "music", "unbelievable", "love", "luck" };
+string path = ($"{projectDirectory}\\Words.txt");
+
+string[] words = File.ReadAllLines(path);
 
 Console.CursorVisible = false;
 
@@ -390,13 +393,13 @@ while (true)
 	string word = GetRandomWord(words);
 	char[] wordSymbols = word.ToCharArray();
 
-	int incorectGuess = 0;
+	int incorectGuessNum = 0;
 	int guessCount = 0;
 
 	string wordToGuess = new String('_', wordSymbols.Length);
 	char[] wordToGuessChar = wordToGuess.ToCharArray();
 
-	DrowOnTheConsole(frames, incorectGuess, wordToGuess, wordSymbols);
+	DrawOnTheConsole(frames, incorectGuessNum, wordToGuess, wordSymbols);
 
 	char playerLetter = char.Parse(Console.ReadLine());
 
@@ -404,7 +407,7 @@ while (true)
 	{
 		bool isContained = false;
 		string tempWord = "";
-
+		//Check if the player has guessed any of the letters of the current word
 		for (int i = 0; i < wordSymbols.Length; i++)
 		{
 			if (playerLetter == wordSymbols[i])
@@ -415,6 +418,7 @@ while (true)
 
 		if (isContained)
 		{
+			//Going through all the letters and compare them with the player's letter
 			for (int i = 0; i < wordToGuessChar.Length; i++)
 			{
 				if (playerLetter == wordSymbols[i])
@@ -423,7 +427,7 @@ while (true)
 					wordToGuessChar[i] = playerLetter;
 				}
 			}
-
+			//Recording all guessed letters in tempWord
 			for (int i = 0; i < wordToGuessChar.Length; i++)
 			{
 				tempWord += wordToGuessChar[i];
@@ -431,22 +435,22 @@ while (true)
 		}
 		else
 		{
-			incorectGuess++;
+			incorectGuessNum++;
 		}
 
-		DrowOnTheConsole(frames, incorectGuess, tempWord, wordSymbols);
-
+		DrawOnTheConsole(frames, incorectGuessNum, tempWord, wordSymbols);
+		//Check if the player has guessed the word
 		if (guessCount == wordToGuess.Length)
 		{
 			Console.Clear();
 			Console.WriteLine(Win);
 			break;
 		}
-
-		if (incorectGuess == frames.Length - 1)
+		//Check if the player has not guessed the word
+		if (incorectGuessNum == frames.Length - 1)
 		{
 			Console.SetCursorPosition(0, 0);
-			DrowDeathAnimation(deathAnimation);
+			DrawDeathAnimation(deathAnimation);
 			Console.Clear();
 			Console.WriteLine(Loss);
 			break;
@@ -455,21 +459,22 @@ while (true)
 		playerLetter = char.Parse(Console.ReadLine());
 	}
 
-	Console.Write("If you want to play again type 'yes' else type 'no': ");
+	Console.Write("If you want to play again, press [Enter]. Else, type 'quit': ");
 	string playerChoice = Console.ReadLine();
 
-	if (playerChoice == "no")
+	if (playerChoice == "quit")
 	{
 		Console.Clear();
-		Console.WriteLine("Thank you for playing Hangman was closed!");
+		Console.WriteLine("Thank you for playing! Hangman was closed.");
 		break;
 	}
 
 	Console.Clear();
 }
 
-static void DrowDeathAnimation(string[] deathAnimation)
+static void DrawDeathAnimation(string[] deathAnimation)
 {
+	//Render the death animation
 	for (int i = 0; i < deathAnimation.Length; i++)
 	{
 		Console.WriteLine(deathAnimation[i]);
@@ -478,17 +483,19 @@ static void DrowDeathAnimation(string[] deathAnimation)
 	}
 }
 
-static void DrowOnTheConsole(string[] frames, int incorectGuess, string remakedWord, char[] wordSymbols)
+static void DrawOnTheConsole(string[] frames, int incorrectGuess, string guessedWord, char[] wordSymbols)
 {
+	//Drawing current state of the game 
 	Console.SetCursorPosition(0, 0);
-	Console.WriteLine(frames[incorectGuess]);
-	Console.WriteLine($"Guess: {remakedWord}");
+	Console.WriteLine(frames[incorrectGuess]);
+	Console.WriteLine($"Guess: {guessedWord}");
 	Console.WriteLine($"You have to guess {wordSymbols.Length} symbols.");
 	Console.Write("Your symbol: ");
 }
 
 static string GetRandomWord(string[] words)
 {
+	//Selecting a word in a random index
 	Random random = new Random();
 	string word = words[random.Next(words.Length)];
 	return word;
