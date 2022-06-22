@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 string[] face = { "Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" };
 string[] suite = { "Spades", "Hearts", "Clubs", "Diamonds" };
@@ -15,46 +16,34 @@ Console.WriteLine(@"
 || + If there is a draw, the cards are thrown away.                           ||
 ||                                                                            ||
 || HOW TO WIN:                                                                ||
-|| + The player that is runs out of cards first, wins.                        ||
+|| + The player that runs out of cards first, wins.                           ||
 ||                                                                            ||
 || CONTROLS:                                                                  ||
-|| + Press enter in order to draw a new card.                                 ||
+|| + Press [Enter] to draw a new card.                                        ||
 ||                                                                            ||
 ||                              Have fun!                                     ||
 ================================================================================");
-
+// Generate and shuffle the deck
 List<string> deck = GenerateDeck(suite, face);
+deck = ShuffleDeck(deck);
 
 Queue<string> firstPlayerDeck = new Queue<string>();
 Queue<string> secondPlayerDeck = new Queue<string>();
-
-deck = ShuffleDeck(deck);
-
-string tempCard = "";
-
-for (int i = 0; i < deck.Count;)
-{
-    tempCard = deck[i];
-    deck.Remove(tempCard);
-    firstPlayerDeck.Enqueue(tempCard);
-
-    tempCard = deck[i];
-    deck.Remove(tempCard);
-    secondPlayerDeck.Enqueue(tempCard);
-}
+// deal the cards to the players
+DealCards(deck, firstPlayerDeck, secondPlayerDeck);
 
 int totalMoves = 0;
 
 while (true)
 {
     Console.ReadLine();
-
+    // Draw and show the cards from both players' decks 
     string firstPlayerCard = firstPlayerDeck.Dequeue();
     string secondPlayerCard = secondPlayerDeck.Dequeue();
 
     Console.WriteLine($"First player has drawn: {firstPlayerCard}");
     Console.WriteLine($"Second player has drawn: {secondPlayerCard}");
-
+    // Compare the cards and determine the winner of the current round
     int firstPlayerCardPower = CardPower(firstPlayerCard);
     int secondPlayerCardPower = CardPower(secondPlayerCard);
 
@@ -67,7 +56,6 @@ while (true)
         Console.WriteLine("The first player has won the cards!");
         PlaceInDeck(firstPlayerDeck, firstPlayerCard, secondPlayerCard);
         ReshufflePlayerDeck(firstPlayerDeck);
-
     }
     else
     {
@@ -75,13 +63,13 @@ while (true)
         PlaceInDeck(secondPlayerDeck, firstPlayerCard, secondPlayerCard);
         ReshufflePlayerDeck(secondPlayerDeck);
     }
+
     Console.WriteLine(firstPlayerDeck.Count);
     Console.WriteLine(secondPlayerDeck.Count);
 
     Console.WriteLine("================================================================================");
     totalMoves++;
-
-
+    //Check who is the winner
     if (firstPlayerDeck.Count == 0)
     {
         Console.WriteLine($"After a total of {totalMoves} moves, the second player has won!");
@@ -94,6 +82,17 @@ while (true)
         break;
     }
 
+}
+
+static void DealCards(List<string> deck, Queue<string> firstPlayerDeck, Queue<string> secondPlayerDeck)
+{
+    while (deck.Count > 0)
+    {
+        var firstTwoDrawnCards = deck.Take(2).ToArray();
+        deck.RemoveRange(0, 2);
+        firstPlayerDeck.Enqueue(firstTwoDrawnCards[0]);
+        secondPlayerDeck.Enqueue(firstTwoDrawnCards[1]);
+    }
 }
 
 static void ReshufflePlayerDeck(Queue<string> deck)
@@ -120,10 +119,10 @@ static void ReshufflePlayerDeck(Queue<string> deck)
 
 }
 
-static void PlaceInDeck(Queue<string> playerDeck, string firstCard, string SecondCard)
+static void PlaceInDeck(Queue<string> playerDeck, string firstCard, string secondCard)
 {
     playerDeck.Enqueue(firstCard);
-    playerDeck.Enqueue(SecondCard);
+    playerDeck.Enqueue(secondCard);
 }
 
 static int CardPower(string cardName)
