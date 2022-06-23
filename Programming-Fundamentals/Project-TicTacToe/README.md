@@ -37,8 +37,8 @@ We handle all these situations using a series of **loops and checks**.
 <img alt="Image" width="450" src="https://user-images.githubusercontent.com/85368212/175283608-9ff3f906-84ef-4c49-bd64-d75fd4afc8ae.png" />
 
 # Download and Try the Application
-//TODO...
-Download: here
+
+Download: [here](https://github.com/PetarPaunov/SoftUni-School-Content/releases)
 
 
 
