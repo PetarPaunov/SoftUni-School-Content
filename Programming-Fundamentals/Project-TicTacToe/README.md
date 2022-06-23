@@ -30,7 +30,11 @@ We handle all these situations using a series of **loops and checks**.
 
 # Screenshots
 
-//TODO...
+<img alt="Image" width="450" src="https://user-images.githubusercontent.com/85368212/175283153-1ecf9612-ec1c-492e-8787-28899f6db942.png" />
+
+<img alt="Image" width="450" src="https://user-images.githubusercontent.com/85368212/175283950-dc8187e7-8908-4e08-b4fd-4dc5071f1a01.png" />
+
+<img alt="Image" width="450" src="https://user-images.githubusercontent.com/85368212/175283608-9ff3f906-84ef-4c49-bd64-d75fd4afc8ae.png" />
 
 # Download and Try the Application
 //TODO...
