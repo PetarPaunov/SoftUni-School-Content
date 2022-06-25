@@ -1,6 +1,6 @@
 ﻿using System;
 
-string[] frames =
+string[] wrongGuessesFrames =
 {
 	@"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
@@ -9,7 +9,7 @@ string[] frames =
 	@"          ║   " + '\n' +
 	@"     ███  ║   " + '\n' +
 	@"    ══════╩═══",
-    // 1
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -17,7 +17,7 @@ string[] frames =
 	@"          ║   " + '\n' +
 	@"     ███  ║   " + '\n' +
 	@"    ══════╩═══",
-    // 2
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -25,7 +25,7 @@ string[] frames =
 	@"          ║   " + '\n' +
 	@"     ███  ║   " + '\n' +
 	@"    ══════╩═══",
-    // 3
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -33,7 +33,7 @@ string[] frames =
 	@"          ║   " + '\n' +
 	@"     ███  ║   " + '\n' +
 	@"    ══════╩═══",
-    // 4
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -41,7 +41,7 @@ string[] frames =
 	@"          ║   " + '\n' +
 	@"     ███  ║   " + '\n' +
 	@"    ══════╩═══",
-    // 5
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -49,7 +49,7 @@ string[] frames =
 	@"       \  ║   " + '\n' +
 	@"     ███  ║   " + '\n' +
 	@"    ══════╩═══",
-    // 6
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -59,7 +59,7 @@ string[] frames =
 	@"    ══════╩═══"
 };
 
-string[] deathAnimation =
+string[] deathAnimationFrames =
 {
 	@"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
@@ -68,7 +68,7 @@ string[] deathAnimation =
 	@"     / \  ║   " + '\n' +
 	@"     ███  ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -76,7 +76,7 @@ string[] deathAnimation =
 	@"     / \  ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      o>  ║   " + '\n' +
@@ -84,7 +84,7 @@ string[] deathAnimation =
 	@"      >\  ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -92,7 +92,7 @@ string[] deathAnimation =
 	@"     / \  ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"     <o   ║   " + '\n' +
@@ -100,7 +100,7 @@ string[] deathAnimation =
 	@"     /<   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -108,7 +108,7 @@ string[] deathAnimation =
 	@"     / \  ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      o>  ║   " + '\n' +
@@ -116,7 +116,7 @@ string[] deathAnimation =
 	@"      >\  ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      o>  ║   " + '\n' +
@@ -124,7 +124,7 @@ string[] deathAnimation =
 	@"      >\  ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -132,7 +132,7 @@ string[] deathAnimation =
 	@"     / \  ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"     <o   ║   " + '\n' +
@@ -140,7 +140,7 @@ string[] deathAnimation =
 	@"     /<   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"     <o   ║   " + '\n' +
@@ -148,7 +148,7 @@ string[] deathAnimation =
 	@"     /<   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"     <o   ║   " + '\n' +
@@ -156,7 +156,7 @@ string[] deathAnimation =
 	@"     /<   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -164,7 +164,7 @@ string[] deathAnimation =
 	@"     / \  ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      o   ║   " + '\n' +
@@ -172,7 +172,7 @@ string[] deathAnimation =
 	@"      |   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      o   ║   " + '\n' +
@@ -180,7 +180,7 @@ string[] deathAnimation =
 	@"      |   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      o   ║   " + '\n' +
@@ -188,7 +188,7 @@ string[] deathAnimation =
 	@"      |   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      o   ║   " + '\n' +
@@ -196,7 +196,7 @@ string[] deathAnimation =
 	@"      |   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      o   ║   " + '\n' +
@@ -204,7 +204,7 @@ string[] deathAnimation =
 	@"      |   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      o   ║   " + '\n' +
@@ -212,7 +212,7 @@ string[] deathAnimation =
 	@"      |   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -220,7 +220,7 @@ string[] deathAnimation =
 	@"      |   ║   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -228,7 +228,7 @@ string[] deathAnimation =
 	@"      /   ║   " + '\n' +
 	@"      \   ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -236,7 +236,7 @@ string[] deathAnimation =
 	@"          ║   " + '\n' +
 	@"    |__   ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -244,7 +244,7 @@ string[] deathAnimation =
 	@"          ║   " + '\n' +
 	@"    \__   ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -252,7 +252,7 @@ string[] deathAnimation =
 	@"      '   ║   " + '\n' +
 	@"   ____   ║   " + '\n' +
 	@"    ══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -260,7 +260,7 @@ string[] deathAnimation =
 	@"      .   ║   " + '\n' +
 	@"    __    ║   " + '\n' +
 	@"   /══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -268,7 +268,7 @@ string[] deathAnimation =
 	@"          ║   " + '\n' +
 	@"    _ '   ║   " + '\n' +
 	@"  _/══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -276,7 +276,7 @@ string[] deathAnimation =
 	@"      '   ║   " + '\n' +
 	@"      _   ║   " + '\n' +
 	@" __/══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -284,7 +284,7 @@ string[] deathAnimation =
 	@"      .   ║   " + '\n' +
 	@"          ║   " + '\n' +
 	@" __/══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -292,7 +292,7 @@ string[] deathAnimation =
 	@"          ║   " + '\n' +
 	@"      '   ║   " + '\n' +
 	@" __/══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -300,7 +300,7 @@ string[] deathAnimation =
 	@"      '   ║   " + '\n' +
 	@"      _   ║   " + '\n' +
 	@" __/══════╩═══",
-    //
+
     @"      ╔═══╗   " + '\n' +
 	@"      |   ║   " + '\n' +
 	@"      O   ║   " + '\n' +
@@ -399,7 +399,7 @@ while (true)
 	string wordToGuess = new String('_', wordSymbols.Length);
 	char[] wordToGuessChar = wordToGuess.ToCharArray();
 
-	DrawOnTheConsole(frames, incorectGuessNum, wordToGuess, wordSymbols);
+	DrawOnTheConsole(wrongGuessesFrames, incorectGuessNum, wordToGuess, wordSymbols);
 
 	char playerLetter = char.Parse(Console.ReadLine());
 
@@ -438,7 +438,7 @@ while (true)
 			incorectGuessNum++;
 		}
 
-		DrawOnTheConsole(frames, incorectGuessNum, tempWord, wordSymbols);
+		DrawOnTheConsole(wrongGuessesFrames, incorectGuessNum, tempWord, wordSymbols);
 		//Check if the player has guessed the word
 		if (guessCount == wordToGuess.Length)
 		{
@@ -447,10 +447,10 @@ while (true)
 			break;
 		}
 		//Check if the player has not guessed the word
-		if (incorectGuessNum == frames.Length - 1)
+		if (incorectGuessNum == wrongGuessesFrames.Length - 1)
 		{
 			Console.SetCursorPosition(0, 0);
-			DrawDeathAnimation(deathAnimation);
+			DrawDeathAnimation(deathAnimationFrames);
 			Console.Clear();
 			Console.WriteLine(Loss);
 			break;
