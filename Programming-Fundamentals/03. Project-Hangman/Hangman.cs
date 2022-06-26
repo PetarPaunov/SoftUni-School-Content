@@ -31,6 +31,8 @@ const string Loss = @"
 
 const char Underline = '_';
 
+const int MaxAllowedIncorrectCharacters = 6;
+
 string[] wrongGuessesFrames =
 {
 	@"      ╔═══╗   " + '\n' +
@@ -442,7 +444,7 @@ while (true)
 		}
 
 		//Check if the player has not guessed the word
-		if (incorrectGuessCount == wrongGuessesFrames.Length - 1)
+		if (incorrectGuessCount == MaxAllowedIncorrectCharacters)
 		{
 			Console.SetCursorPosition(0, 0);
 			DrawDeathAnimation(deathAnimationFrames);
