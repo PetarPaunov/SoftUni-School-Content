@@ -1,5 +1,36 @@
 ﻿using System;
 
+const string Win = @"
+┌───────────────────────────┐
+│                           │
+│ WW       WW  **  NN   N   │
+│ WW       WW  ii  NNN  N   │
+│  WW  WW WW   ii  N NN N   │
+│   WWWWWWW    ii  N  NNN   │
+│    WW  W     ii  N   NN   │
+│                           │
+│         Good job!         │
+│   You guessed the word!   │
+└───────────────────────────┘
+";
+
+const string Loss = @"
+┌────────────────────────────────────┐
+│  LLL          OOOO    SSSS   SSSS  │
+│  LLL         OO  OO  SS  SS SS  SS │
+│  LLL        OO    OO SS     SS     │
+│  LLL        OO    OO  SSSS   SSSS  │
+│  LLL        OO    OO     SS     SS │
+│  LLLLLLLLLL  OO  OO  SS  SS SS  SS │
+│   LLLLLLLLL   OOOO    SSSS   SSSS  │
+│                                    |
+│        You were so close.          │
+│ Next time you will guess the word! │
+└────────────────────────────────────┘
+";
+
+const char Underline = '_';
+
 string[] wrongGuessesFrames =
 {
 	@"      ╔═══╗   " + '\n' +
@@ -350,39 +381,11 @@ string[] deathAnimationFrames =
 	@" __/══════╩═══"
 };
 
-const string Win = @"
-┌───────────────────────────┐
-│                           │
-│ WW       WW  **  NN   N   │
-│ WW       WW  ii  NNN  N   │
-│  WW  WW WW   ii  N NN N   │
-│   WWWWWWW    ii  N  NNN   │
-│    WW  W     ii  N   NN   │
-│                           │
-│         Good job!         │
-│   You guessed the word!   │
-└───────────────────────────┘
-";
-
-const string Loss = @"
-┌────────────────────────────────────┐
-│  LLL          OOOO    SSSS   SSSS  │
-│  LLL         OO  OO  SS  SS SS  SS │
-│  LLL        OO    OO SS     SS     │
-│  LLL        OO    OO  SSSS   SSSS  │
-│  LLL        OO    OO     SS     SS │
-│  LLLLLLLLLL  OO  OO  SS  SS SS  SS │
-│   LLLLLLLLL   OOOO    SSSS   SSSS  │
-│                                    |
-│        You were so close.          │
-│ Next time you will guess the word! │
-└────────────────────────────────────┘
-";
-//Reading the words from the Words.txt file
+//Reading the words from the words.txt file
 string currentDirectory = Directory.GetCurrentDirectory();
 string projectDirectory = Directory.GetParent(currentDirectory).Parent.Parent.FullName;
 
-string path = ($"{projectDirectory}\\Words.txt");
+string path = $@"{projectDirectory}\words.txt";
 
 string[] words = File.ReadAllLines(path);
 
@@ -391,78 +394,71 @@ Console.CursorVisible = false;
 while (true)
 {
 	string word = GetRandomWord(words);
-	char[] wordSymbols = word.ToCharArray();
 
-	int incorectGuessNum = 0;
-	int guessCount = 0;
+	string wordToGuess = new String('_', word.Length);
+	int incorrectGuessCount = 0;
+	DrawOnTheConsole(wrongGuessesFrames, incorrectGuessCount, wordToGuess);
 
-	string wordToGuess = new String('_', wordSymbols.Length);
 	char[] wordToGuessChar = wordToGuess.ToCharArray();
 
-	DrawOnTheConsole(wrongGuessesFrames, incorectGuessNum, wordToGuess, wordSymbols);
-
-	char playerLetter = char.Parse(Console.ReadLine());
+	string playerInput = Console.ReadLine();
 
 	while (true)
 	{
-		bool isContained = false;
-		string tempWord = "";
-		//Check if the player has guessed any of the letters of the current word
-		for (int i = 0; i < wordSymbols.Length; i++)
-		{
-			if (playerLetter == wordSymbols[i])
-			{
-				isContained = true;
-			}
-		}
-
-		if (isContained)
+		if (playerInput.Length != 1)
+        {
+            Console.WriteLine("You should type only a single character!");
+			playerInput = Console.ReadLine();
+			continue;
+        }
+		
+		var playerLetter = char.Parse(playerInput);
+		
+		if (word.Contains(playerLetter))
 		{
 			//Going through all the letters and compare them with the player's letter
 			for (int i = 0; i < wordToGuessChar.Length; i++)
 			{
-				if (playerLetter == wordSymbols[i])
+				if (playerLetter == word[i])
 				{
-					guessCount++;
 					wordToGuessChar[i] = playerLetter;
 				}
-			}
-			//Recording all guessed letters in tempWord
-			for (int i = 0; i < wordToGuessChar.Length; i++)
-			{
-				tempWord += wordToGuessChar[i];
 			}
 		}
 		else
 		{
-			incorectGuessNum++;
+			incorrectGuessCount++;
 		}
 
-		DrawOnTheConsole(wrongGuessesFrames, incorectGuessNum, tempWord, wordSymbols);
+		DrawOnTheConsole(wrongGuessesFrames, incorrectGuessCount, new string(wordToGuessChar));
+
 		//Check if the player has guessed the word
-		if (guessCount == wordToGuess.Length)
+		if (!wordToGuess.Contains(Underline))
 		{
 			Console.Clear();
 			Console.WriteLine(Win);
+			Console.WriteLine($"The word you guessed is [{word}].");
 			break;
 		}
+
 		//Check if the player has not guessed the word
-		if (incorectGuessNum == wrongGuessesFrames.Length - 1)
+		if (incorrectGuessCount == wrongGuessesFrames.Length - 1)
 		{
 			Console.SetCursorPosition(0, 0);
 			DrawDeathAnimation(deathAnimationFrames);
 			Console.Clear();
 			Console.WriteLine(Loss);
+            Console.WriteLine($"The exact word is [{word}].");
 			break;
 		}
 
-		playerLetter = char.Parse(Console.ReadLine());
+		playerInput = Console.ReadLine();
 	}
 
 	Console.Write("If you want to play again, press [Enter]. Else, type 'quit': ");
-	string playerChoice = Console.ReadLine();
+	playerInput = Console.ReadLine();
 
-	if (playerChoice == "quit")
+	if (playerInput == "quit")
 	{
 		Console.Clear();
 		Console.WriteLine("Thank you for playing! Hangman was closed.");
@@ -470,6 +466,16 @@ while (true)
 	}
 
 	Console.Clear();
+}
+
+static void DrawOnTheConsole(string[] frames, int incorrectGuess, string guessedWord)
+{
+	//Drawing current state of the game
+	Console.Clear();
+	Console.WriteLine(frames[incorrectGuess]);
+	Console.WriteLine($"Guess: {guessedWord}");
+	Console.WriteLine($"You have to guess {guessedWord.Length} symbols.");
+	Console.Write("Your symbol: ");
 }
 
 static void DrawDeathAnimation(string[] deathAnimation)
@@ -481,16 +487,6 @@ static void DrawDeathAnimation(string[] deathAnimation)
 		Thread.Sleep(200);
 		Console.SetCursorPosition(0, 0);
 	}
-}
-
-static void DrawOnTheConsole(string[] frames, int incorrectGuess, string guessedWord, char[] wordSymbols)
-{
-	//Drawing current state of the game 
-	Console.SetCursorPosition(0, 0);
-	Console.WriteLine(frames[incorrectGuess]);
-	Console.WriteLine($"Guess: {guessedWord}");
-	Console.WriteLine($"You have to guess {wordSymbols.Length} symbols.");
-	Console.Write("Your symbol: ");
 }
 
 static string GetRandomWord(string[] words)
