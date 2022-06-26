@@ -3,17 +3,18 @@ A console-based C# implementation of the "**War (card game)**" game.
 
 <img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/174969843-0b2c231a-8a25-42a0-aa03-f0764903682e.png" />
 
-[Game Of War](https://en.wikipedia.org/wiki/War_(card_game)) is a simple **card game**, typically played by **two players** using a **standard playing card** deck — and often played by **children**. There are many **variations**, as well as **related games** such as the **Bettelmann ("Beggar Man")** and **Tod und Leben ("Life and Death")**.
-- Each of the **two players** is **dealt one half** of a **shuffled deck of cards**.
-- Each turn, each **player draws one card** from their decks.               
-- The player that **drew the card with higher value** gets **both** cards.      
-- **Winning cards return** to the winner's deck and **get reshuffled**.         
-- If there is a **draw**, the **cards are thrown away**.                        
+[Game Of War](https://en.wikipedia.org/wiki/War_(card_game)) is a simple **card game**, typically played by **two players** using a **standard playing card deck**. There are many **variations**.
 
-The player that **runs out of cards first, wins**.  
+Rules:
+- Each of the **two players** is **dealt one half** of a **shuffled deck of cards**.
+- Each turn, each **player draws one card** from their deck.               
+- The player that **drew the card with higher value** gets **both** cards.      
+- **Both cards** return to the **winner's deck** and the deck **gets reshuffled**.         
+- If there is a **draw**, the **cards are thrown away**.                        
+- The player that **runs out of cards first, wins**.  
 
 # Input and Output
-- Press `Enter` to draw a new card.  
+- Press `Enter` each time to draw a new card until the game ends.  
 
 The computer will **compare** the cards and **tell you which one has the higher value**.
 
