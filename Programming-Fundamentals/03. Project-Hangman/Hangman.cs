@@ -29,7 +29,7 @@ const string Loss = @"
 └────────────────────────────────────┘
 ";
 
-const char Underline = '_';
+const char Underscore = '_';
 
 const int MaxAllowedIncorrectCharacters = 6;
 
@@ -397,7 +397,7 @@ while (true)
 {
 	string word = GetRandomWord(words);
 
-	string wordToGuess = new String('_', word.Length);
+	string wordToGuess = new String(Underscore, word.Length);
 	int incorrectGuessCount = 0;
 	DrawOnTheConsole(wrongGuessesFrames, incorrectGuessCount, wordToGuess);
 
@@ -435,7 +435,7 @@ while (true)
 		DrawOnTheConsole(wrongGuessesFrames, incorrectGuessCount, new string(wordToGuessChar));
 
 		//Check if the player has guessed the word
-		if (!wordToGuess.Contains(Underline))
+		if (!wordToGuessChar.Contains(Underscore))
 		{
 			Console.Clear();
 			Console.WriteLine(Win);
@@ -470,11 +470,11 @@ while (true)
 	Console.Clear();
 }
 
-static void DrawOnTheConsole(string[] frames, int incorrectGuess, string guessedWord)
+static void DrawOnTheConsole(string[] wrongGuessesFrames, int incorrectGuess, string guessedWord)
 {
 	//Drawing current state of the game
 	Console.Clear();
-	Console.WriteLine(frames[incorrectGuess]);
+	Console.WriteLine(wrongGuessesFrames[incorrectGuess]);
 	Console.WriteLine($"Guess: {guessedWord}");
 	Console.WriteLine($"You have to guess {guessedWord.Length} symbols.");
 	Console.Write("Your symbol: ");
