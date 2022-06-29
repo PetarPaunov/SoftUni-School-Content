@@ -32,4 +32,5 @@ The computer will **check** whether the **letter** is **contained** in the **cur
 
 You can play the game directly in your Web browser here:
 
-[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/174962304-4885afaa-35fb-4e11-bece-f0fcaf506b2c.png" />](https://replit.com/@PetarPaunov/Hangman#Main.cs)
+[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/176439817-f74cc1f4-41ab-4a63-8ef6-fcb199672e32.png" />](https://replit.com/@PetarPaunov/Hangman#Main.cs)
+
