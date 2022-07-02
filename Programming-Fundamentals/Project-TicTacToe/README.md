@@ -1,13 +1,14 @@
 # GUI "Tic Tac Toe" App
-Simple **Windows Forms App** C# implementation of **Tic Tac Toe**
+Simple **C# Windows Forms App** implementation of **Tic Tac Toe** game.
 
 <img width= 325px src="https://user-images.githubusercontent.com/85368212/175223641-f2999e3b-a7ca-4afe-b2e6-927f9859b4a6.jpg" />
 
-[Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) (American English), **noughts and crosses** (Commonwealth English), or **Xs and Os** (Irish English) is a **paper-and-pencil** game for **two players** who take turns **marking the spaces** in a **three-by-three** grid with **X or O**. The player who succeeds in **placing three of their** marks in a **horizontal**, **vertical**, or **diagonal** row is the **winner**. It is a **solved game**, with a **forced draw** assuming best play from both players.
+[Tic-Tac-Toe](https://en.wikipedia.org/wiki/Tic-tac-toe) is a **paper-and-pencil** game for **two players** who take turns **marking the spaces** in a **three-by-three** grid with **X or O**. The player who succeeds in **placing three of their marks** in a **horizontal**, **vertical**, or **diagonal** row is the **winner**.
 
+Rules:
 - The game is played on a grid that's **3 squares by 3 squares**.
-- You are **X**, your friend is **O**. Players take turns **putting their marks in empty squares**.
-- The first player to **get 3 of her marks in a row** (up, down, across, or diagonally) is the **winner**.
+- You are **X**, your friend is **O**. Players take turns **putting their marks on the empty squares**.
+- The first player to **get 3 of their marks in a row** (up, down, or diagonally) is the **winner**.
 - When all **9 squares are full**, the game is **draw**.
 
 # Settings of the Format and the Separate Controls

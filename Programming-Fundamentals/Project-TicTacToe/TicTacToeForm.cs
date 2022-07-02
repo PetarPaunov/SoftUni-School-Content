@@ -1,8 +1,8 @@
 namespace TicTacToe
 {
-    public partial class TicTacToe : Form
+    public partial class ticTacToeForm : Form
     {
-        public TicTacToe()
+        public ticTacToeForm()
         {
             InitializeComponent();
             GenerateButtons();
@@ -12,21 +12,21 @@ namespace TicTacToe
 
         private void GenerateButtons()
         {
-            for (int i = 0; i < 3; i++)
+            for (int row = 0; row < 3; row++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int col = 0; col < 3; col++)
                 {
-                    buttons[i, j] = new Button();
-                    buttons[i, j].Size = new Size(175, 175);
-                    buttons[i, j].Location = new Point(i * 175, j * 175);
-                    buttons[i, j].FlatStyle = FlatStyle.Flat;
-                    buttons[i, j].Font = new Font(DefaultFont.FontFamily, 80, FontStyle.Bold);
+                    buttons[row, col] = new Button();
+                    buttons[row, col].Size = new Size(175, 175);
+                    buttons[row, col].Location = new Point(row * 175, col * 175);
+                    buttons[row, col].FlatStyle = FlatStyle.Flat;
+                    buttons[row, col].Font = new Font(DefaultFont.FontFamily, 80, FontStyle.Bold);
 
                     // Define button click event
-                    buttons[i, j].Click += new EventHandler(button_Click);
+                    buttons[row, col].Click += new EventHandler(button_Click);
 
-                    // Add button in to the panel
-                    this.buttonsPanel.Controls.Add(buttons[i, j]);
+                    // Add button to the panel
+                    this.buttonsPanel.Controls.Add(buttons[row, col]);
                 }
             }
         }
@@ -66,73 +66,72 @@ namespace TicTacToe
         {
             List<Button> winnerButtons = new List<Button>();
             // vertically
-            for (int i = 0; i < 3; i++)
+            for (int row = 0; row < 3; row++)
             {
-                winnerButtons = new List<Button>();
-
-                
-                for (int j = 0; j < 3; j++)
+                for (int col = 0; col < 3; col++)
                 {
-                    if (buttons[i, j].Text != this.playerButton.Text)
+                    if (buttons[row, col].Text != this.playerButton.Text)
                     {
                         break;
                     }
 
-                    winnerButtons.Add(buttons[i, j]);
-                    if (j == 2)
+                    winnerButtons.Add(buttons[row, col]);
+                    if (col == 2)
                     {
                         ShowWinner(winnerButtons);
                         return;
                     }
                 }
             }
+
             //horizontally
-            for (int i = 0; i < 3; i++)
+            winnerButtons.Clear();
+            for (int row = 0; row < 3; row++)
             {
-                winnerButtons = new List<Button>();
-                for (int j = 0; j < 3; j++)
+                for (int col = 0; col < 3; col++)
                 {
-                    if (buttons[j, i].Text != this.playerButton.Text)
+                    if (buttons[col, row].Text != this.playerButton.Text)
                     {
                         break;
                     }
 
-                    winnerButtons.Add(buttons[j, i]);
-                    if (j == 2)
+                    winnerButtons.Add(buttons[col, row]);
+                    if (col == 2)
                     {
                         ShowWinner(winnerButtons);
                         return;
                     }
                 }
             }
-            //diagonally 1 (top-left to bottom-right)
 
-            winnerButtons = new List<Button>();
-            for (int i = 0, j = 0; i < 3; i++, j++)
+            //diagonally 1 (top-left to bottom-right)
+            winnerButtons.Clear();
+            for (int row = 0, col = 0; row < 3; row++, col++)
             {
-                if (buttons[i, j].Text != this.playerButton.Text)
+                if (buttons[row, col].Text != this.playerButton.Text)
                 {
                     break;
                 }
 
-                winnerButtons.Add(buttons[i, j]);
-                if (j == 2)
+                winnerButtons.Add(buttons[row, col]);
+                if (col == 2)
                 {
                     ShowWinner(winnerButtons);
                     return;
                 }
             }
+
             //diagonally 2 (bottom-left to top-right)
-            winnerButtons = new List<Button>();
-            for (int i = 2, j = 0; j < 3; i--, j++)
+            winnerButtons.Clear();
+            for (int row = 2, col = 0; col < 3; row--, col++)
             {
-                if (buttons[i, j].Text != this.playerButton.Text)
+                if (buttons[row, col].Text != this.playerButton.Text)
                 {
                     break;
                 }
 
-                winnerButtons.Add(buttons[i, j]);
-                if (j == 2)
+                winnerButtons.Add(buttons[row, col]);
+                if (col == 2)
                 {
                     ShowWinner(winnerButtons);
                     return;

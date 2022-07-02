@@ -1,10 +1,10 @@
-﻿using GameOfWar;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using GameOfWar;
 
 Console.WriteLine(@"
 ================================================================================
-||                     Welcome to the game of War!                            ||
+||                     Welcome to the Game of War!                            ||
 ||                                                                            ||
 || HOW TO PLAY:                                                               ||
 || + Each of the two players is dealt one half of a shuffled deck of cards.   ||
@@ -55,28 +55,27 @@ while (true)
     int firstPlayerCardPower = CardPower(firstPlayerCard);
     int secondPlayerCardPower = CardPower(secondPlayerCard);
 
-    Queue<string> roundWinnerDeck = new Queue<string>();
     if (firstPlayerCardPower == secondPlayerCardPower)
     {
         Console.WriteLine("It's a draw!");
+        // Each player gets their own card
+        firstPlayerDeck.Enqueue(firstPlayerCard);
+        secondPlayerDeck.Enqueue(secondPlayerCard);
     }
     else if (firstPlayerCardPower > secondPlayerCardPower)
     {
         Console.WriteLine("The first player has won the cards!");
-        roundWinnerDeck = firstPlayerDeck;
+        // The winner of the round gets both cards
+        firstPlayerDeck.Enqueue(firstPlayerCard);
+        firstPlayerDeck.Enqueue(secondPlayerCard);
     }
     else
     {
         Console.WriteLine("The second player has won the cards!");
-        roundWinnerDeck = secondPlayerDeck;
+        // The winner of the round gets both cards
+        secondPlayerDeck.Enqueue(firstPlayerCard);
+        secondPlayerDeck.Enqueue(secondPlayerCard);
     }
-
-    // The winner of the round gets both cards
-    roundWinnerDeck.Enqueue(firstPlayerCard);
-    roundWinnerDeck.Enqueue(secondPlayerCard);
-
-    // Reshuffling the winner's deck
-    ReshufflePlayerDeck(roundWinnerDeck);
 
     Console.WriteLine("================================================================================");
     Console.WriteLine($"First player currently has {firstPlayerDeck.Count} cards.");
@@ -99,42 +98,6 @@ while (true)
     }
 }
 
-static void ReshufflePlayerDeck(Queue<string> deck)
-{
-    List<string> playerDeck = deck.ToList();
-    ShuffleDeck(playerDeck);
-
-    deck.Clear();
-
-    for (int i = 0; i < playerDeck.Count; i++)
-    {
-        deck.Enqueue(playerDeck[i]);
-    }
-}
-
-static int CardPower(string cardName)
-{
-    var face = cardName.Split(" ").ToArray()[0];
-
-    int cardPower = (int)Enum.Parse(typeof(CardFace), face);
-
-    return cardPower;
-}
-
-static void ShuffleDeck(List<string> deck)
-{
-    Random random = new Random();
-
-    for (int i = 0; i < deck.Count; i++)
-    {
-        int firstCardIndex = random.Next(i);
-
-        string tempCard = deck[firstCardIndex];
-        deck[firstCardIndex] = deck[i];
-        deck[i] = tempCard;
-    }
-}
-
 static List<string> GenerateDeck()
 {
     List<string> deck = new List<string>();
@@ -152,4 +115,27 @@ static List<string> GenerateDeck()
     }
 
     return deck;
+}
+
+static void ShuffleDeck(List<string> deck)
+{
+    Random random = new Random();
+
+    for (int i = 0; i < deck.Count; i++)
+    {
+        int firstCardIndex = random.Next(deck.Count);
+
+        string tempCard = deck[firstCardIndex];
+        deck[firstCardIndex] = deck[i];
+        deck[i] = tempCard;
+    }
+}
+
+static int CardPower(string cardName)
+{
+    var face = cardName.Split(" ").ToArray()[0];
+
+    int cardPower = (int)Enum.Parse(typeof(CardFace), face);
+
+    return cardPower;
 }
