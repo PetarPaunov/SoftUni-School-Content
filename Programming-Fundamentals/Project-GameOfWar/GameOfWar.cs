@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using GameOfWar;
+using System.Collections.Generic;
 
 Console.WriteLine(@"
 ================================================================================
@@ -10,11 +10,11 @@ Console.WriteLine(@"
 || + Each of the two players is dealt one half of a shuffled deck of cards.   ||
 || + Each turn, each player draws one card from their deck.                   ||
 || + The player that drew the card with higher value gets both cards.         ||
-|| + Winning cards return to the winner's deck and get reshuffled.            ||
-|| + If there is a draw, the cards are thrown away.                           ||
+|| + Winning cards return to the winner's deck.                               ||
+|| + If there is a draw, The cards are returned to the players deck.          ||
 ||                                                                            ||
 || HOW TO WIN:                                                                ||
-|| + The player that runs out of cards first, wins.                           ||
+|| + The player who collects all the cards wins.                              ||
 ||                                                                            ||
 || CONTROLS:                                                                  ||
 || + Press [Enter] to draw a new card until we have a winner.                 ||
