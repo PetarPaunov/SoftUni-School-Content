@@ -9,9 +9,9 @@ Rules:
 - Each of the **two players** is **dealt one half** of a **shuffled deck of cards**.
 - Each turn, each **player draws one card** from their deck.               
 - The player that **drew the card with higher value** gets **both** cards.      
-- **Both cards** return to the **winner's deck** and the deck **gets reshuffled**.         
+  - **Both cards** return to the **winner's deck**.         
 - If there is a **draw**, the **cards are thrown away**.                        
-- The player that **runs out of cards first, wins**.  
+- The player who **collects all the cards wins**.  
 
 # Input and Output
 - Press `Enter` each time to draw a new card until the game ends.  
