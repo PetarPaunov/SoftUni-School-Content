@@ -399,7 +399,9 @@ while (true)
 
 	string wordToGuess = new String(Underscore, word.Length);
 	int incorrectGuessCount = 0;
-	DrawOnTheConsole(wrongGuessesFrames, incorrectGuessCount, wordToGuess);
+
+	List<char> playerUsedLetters = new List<char>();
+	DrawOnTheConsole(wrongGuessesFrames, incorrectGuessCount, wordToGuess, playerUsedLetters);
 
 	char[] wordToGuessChar = wordToGuess.ToCharArray();
 
@@ -415,6 +417,8 @@ while (true)
         }
 		
 		var playerLetter = char.Parse(playerInput);
+
+		playerUsedLetters.Add(playerLetter);
 		
 		if (word.Contains(playerLetter))
 		{
@@ -432,7 +436,7 @@ while (true)
 			incorrectGuessCount++;
 		}
 
-		DrawOnTheConsole(wrongGuessesFrames, incorrectGuessCount, new string(wordToGuessChar));
+		DrawOnTheConsole(wrongGuessesFrames, incorrectGuessCount, new string(wordToGuessChar), playerUsedLetters);
 
 		//Check if the player has guessed the word
 		if (!wordToGuessChar.Contains(Underscore))
@@ -470,13 +474,14 @@ while (true)
 	Console.Clear();
 }
 
-static void DrawOnTheConsole(string[] wrongGuessesFrames, int incorrectGuess, string guessedWord)
+static void DrawOnTheConsole(string[] wrongGuessesFrames, int incorrectGuess, string guessedWord, List<char> playerUsedLetters)
 {
 	//Drawing current state of the game
 	Console.Clear();
 	Console.WriteLine(wrongGuessesFrames[incorrectGuess]);
 	Console.WriteLine($"Guess: {guessedWord}");
 	Console.WriteLine($"You have to guess {guessedWord.Length} symbols.");
+    Console.WriteLine($"The following letters are used: {String.Join(", ", playerUsedLetters)}");
 	Console.Write("Your symbol: ");
 }
 
