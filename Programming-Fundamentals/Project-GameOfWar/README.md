@@ -22,13 +22,14 @@ The computer will **compare** the cards and **tell you which one has the higher 
 
 # Screenshots
 
-<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/177001300-d5ef6088-4d5f-4dde-b3e1-e89371ae5d99.png" />
+<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/177136595-c4616295-1e87-4571-aa3a-6566107c2960.png" />
 
-<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/177001349-02c09d80-36d2-443a-96a7-5ac5172ad5e3.png" />
+<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/177137188-142cb3e8-7eee-4915-8d3b-787cede82ee3.png" />
 
 <img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/177001409-ee524d81-d018-4bac-8ffd-45547492c3c6.png" />
 
 # Live Demo
 You can play the game directly in your Web browser here:
 
-[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/177001522-ba431c14-1473-4a0a-ad78-dc7cc1056e02.png" />](https://replit.com/@PetarPaunov/Game-of-WarCards#Main.cs)
+[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/177136327-998cee17-eca6-41a2-822a-a897bb36b32e.png" />](https://replit.com/@PetarPaunov/Game-of-WarCards#Main.cs)
+
