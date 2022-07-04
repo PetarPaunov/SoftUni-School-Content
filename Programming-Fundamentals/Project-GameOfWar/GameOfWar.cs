@@ -10,7 +10,7 @@ Console.WriteLine(@"
 || + Each of the two players is dealt one half of a shuffled deck of cards.   ||
 || + Each turn, each player draws one card from their deck.                   ||
 || + The player that drew the card with higher value gets both cards.         ||
-|| + Winning cards return to the winner's deck.                               ||
+|| + Both cards return to the winner's deck.                                  ||
 || + If there is a draw, the cards are returned to the players deck.          ||
 ||                                                                            ||
 || HOW TO WIN:                                                                ||
