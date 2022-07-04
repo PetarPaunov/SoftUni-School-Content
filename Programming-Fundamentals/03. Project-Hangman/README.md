@@ -18,19 +18,19 @@ The computer will **check** whether the **letter** is **contained** in the **cur
 [Source Code](Hangman.cs)
 
 # Screenshots
-<img alt="Image" width="350px" src="https://user-images.githubusercontent.com/85368212/174960199-5e9286fc-a96a-48fc-ac52-150bb6f8909a.png" />
+<img alt="Image" width="350px" src="https://user-images.githubusercontent.com/85368212/177145745-fe4adad1-4ebd-41e2-aa37-5261ca722f26.png" />
 
-<img alt="Image" width="350px" src="https://user-images.githubusercontent.com/85368212/174960463-c2a9d651-2e0c-419c-8f9e-f64eb23695af.png" />
+<img alt="Image" width="350px" src="https://user-images.githubusercontent.com/85368212/177145889-b57223a4-094a-4329-a2e5-2e7a64bb0cfa.png" />
 
 <img alt="Image" width="475px" src="https://user-images.githubusercontent.com/85368212/174960923-8211adaa-4973-4fe8-9f38-867fad6e92ab.png" />
 
-<img alt="Image" width="350px" src="https://user-images.githubusercontent.com/85368212/174961292-c85a98ac-c6ca-4021-a6bd-7363f81ab820.png" />
+<img alt="Image" width="350px" src="https://user-images.githubusercontent.com/85368212/177146374-9f027299-924e-48e7-b1b8-11a5e9c98bce.png" />
 
-<img alt="Image" width="475px" src="https://user-images.githubusercontent.com/85368212/174961375-132c4865-0cfc-47fc-bafb-c1f2a52798bf.png" />
+<img alt="Image" width="475px" src="https://user-images.githubusercontent.com/85368212/177146505-e2d9333c-8f3d-434a-91b4-1394bef8ef98.png" />
 
 # Live Demo
 
 You can play the game directly in your Web browser here:
 
-[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/177107426-7d4c5ae0-11f9-4856-97fa-328e355a8351.png" />](https://replit.com/@PetarPaunov/Hangman#Main.cs)
+[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/177146817-86696c1b-6023-4e98-852a-571a37bc690d.png" />](https://replit.com/@PetarPaunov/Hangman#Main.cs)
 
