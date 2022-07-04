@@ -31,4 +31,5 @@ The computer will **compare** the cards and **tell you which one has the higher 
 # Live Demo
 You can play the game directly in your Web browser here:
 
-[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/177001522-ba431c14-1473-4a0a-ad78-dc7cc1056e02.png" />](https://replit.com/@PetarPaunov/Game-of-WarCards#Main.cs)
+[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/177136327-998cee17-eca6-41a2-822a-a897bb36b32e.png" />](https://replit.com/@PetarPaunov/Game-of-WarCards#Main.cs)
+
