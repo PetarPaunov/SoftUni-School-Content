@@ -11,7 +11,7 @@ Console.WriteLine(@"
 || + Each turn, each player draws one card from their deck.                   ||
 || + The player that drew the card with higher value gets both cards.         ||
 || + Winning cards return to the winner's deck.                               ||
-|| + If there is a draw, The cards are returned to the players deck.          ||
+|| + If there is a draw, the cards are returned to the players deck.          ||
 ||                                                                            ||
 || HOW TO WIN:                                                                ||
 || + The player who collects all the cards wins.                              ||
@@ -32,7 +32,7 @@ Queue<string> secondPlayerDeck = new Queue<string>();
 // Deal the cards to the players
 while (deck.Count > 0)
 {
-    var firstTwoDrawnCards = deck.Take(2).ToArray();
+    string[] firstTwoDrawnCards = deck.Take(2).ToArray();
     deck.RemoveRange(0, 2);
     firstPlayerDeck.Enqueue(firstTwoDrawnCards[0]);
     secondPlayerDeck.Enqueue(firstTwoDrawnCards[1]);
@@ -103,8 +103,7 @@ static List<string> GenerateDeck()
     List<string> deck = new List<string>();
 
     var faces = (CardFace[])Enum.GetValues(typeof(CardFace));
-
-    var suites = new string[] { "Spades", "Hearts", "Clubs", "Diamonds" };
+    string[] suites = { "Spades", "Hearts", "Clubs", "Diamonds" };
 
     for (int i = 0; i < suites.Length; i++)
     {
