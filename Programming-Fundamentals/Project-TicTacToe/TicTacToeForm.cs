@@ -23,7 +23,7 @@ namespace TicTacToe
                     buttons[row, col].Font = new Font(DefaultFont.FontFamily, 80, FontStyle.Bold);
 
                     // Define button click event
-                    buttons[row, col].Click += new EventHandler(button_Click);
+                    buttons[row, col].Click += new EventHandler(OnButtonClick);
 
                     // Add button to the panel
                     this.buttonsPanel.Controls.Add(buttons[row, col]);
@@ -31,7 +31,7 @@ namespace TicTacToe
             }
         }
 
-        void button_Click(object sender, EventArgs e)
+        void OnButtonClick(object sender, EventArgs e)
         {
             // Load the clicked button into a local variable
             Button button = sender as Button;
@@ -161,7 +161,7 @@ namespace TicTacToe
             Application.Restart();
         }
 
-        private void restartButton_Click(object sender, EventArgs e)
+        private void GameRestart(object sender, EventArgs e)
         {
             Application.Restart();
         }

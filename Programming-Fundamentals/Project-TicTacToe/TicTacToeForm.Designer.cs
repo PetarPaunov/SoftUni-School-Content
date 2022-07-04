@@ -56,7 +56,7 @@
             resources.ApplyResources(this.restartButton, "restartButton");
             this.restartButton.Name = "restartButton";
             this.restartButton.UseVisualStyleBackColor = true;
-            this.restartButton.Click += new System.EventHandler(this.restartButton_Click);
+            this.restartButton.Click += new System.EventHandler(this.GameRestart);
             // 
             // ticTacToeForm
             // 
