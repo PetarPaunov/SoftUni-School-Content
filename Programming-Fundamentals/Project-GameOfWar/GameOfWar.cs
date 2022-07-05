@@ -66,6 +66,8 @@ while (true)
     while (firstPlayerCardPower == secondPlayerCardPower)
     {
         Console.WriteLine("WAR!");
+
+        //If one player has less than 4 cards, the other player automatically wins.
         if (firstPlayerDeck.Count < 4)
         {
             while (firstPlayerDeck.Count > 0)
@@ -84,6 +86,7 @@ while (true)
             break;
         }
 
+        //Add three cards from both players to the pool
         for (int i = 0; i < 3; i++)
         {
             pool.Enqueue(firstPlayerDeck.Dequeue());
