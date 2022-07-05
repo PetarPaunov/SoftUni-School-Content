@@ -12,6 +12,9 @@ Console.WriteLine(@"
 || + The player that drew the card with higher value gets both cards.         ||
 || + Both cards return to the winner's deck.                                  ||
 || + If there is a draw, the cards are returned to the players deck.          ||
+||    - Both players place the next three cards face down and then another    ||
+||      card face-up. The owner of the higher face-up card gets all the cards ||
+||      on the table.                                                         ||
 ||                                                                            ||
 || HOW TO WIN:                                                                ||
 || + The player who collects all the cards wins.                              ||
@@ -51,30 +54,75 @@ while (true)
     string secondPlayerCard = secondPlayerDeck.Dequeue();
     Console.WriteLine($"Second player has drawn: {secondPlayerCard}");
 
+    Queue<string> pool = new Queue<string>();
+
+    pool.Enqueue(firstPlayerCard);
+    pool.Enqueue(secondPlayerCard);
+
     // Compare the cards and determine the winner of the current round
     int firstPlayerCardPower = CardPower(firstPlayerCard);
     int secondPlayerCardPower = CardPower(secondPlayerCard);
 
-    if (firstPlayerCardPower == secondPlayerCardPower)
+    while (firstPlayerCardPower == secondPlayerCardPower)
     {
-        Console.WriteLine("It's a draw!");
-        // Each player gets their own card
-        firstPlayerDeck.Enqueue(firstPlayerCard);
-        secondPlayerDeck.Enqueue(secondPlayerCard);
+        Console.WriteLine("WAR!");
+        if (firstPlayerDeck.Count < 4)
+        {
+            while (firstPlayerDeck.Count > 0)
+            {
+                secondPlayerDeck.Enqueue(firstPlayerDeck.Dequeue());
+            }
+            break;
+        }
+
+        if (secondPlayerDeck.Count < 4)
+        {
+            while (secondPlayerDeck.Count > 0)
+            {
+                firstPlayerDeck.Enqueue(secondPlayerDeck.Dequeue());
+            }
+            break;
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            pool.Enqueue(firstPlayerDeck.Dequeue());
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            pool.Enqueue(secondPlayerDeck.Dequeue());
+        }
+
+        firstPlayerCard = firstPlayerDeck.Dequeue();
+        Console.WriteLine($"First player has drawn: {firstPlayerCard}");
+        firstPlayerCardPower = CardPower(firstPlayerCard);
+
+        secondPlayerCard = secondPlayerDeck.Dequeue();
+        Console.WriteLine($"Second player has drawn: {secondPlayerCard}");
+        secondPlayerCardPower = CardPower(secondPlayerCard);
+
+        pool.Enqueue(firstPlayerCard);
+        pool.Enqueue(secondPlayerCard);
     }
-    else if (firstPlayerCardPower > secondPlayerCardPower)
+
+    if (firstPlayerCardPower > secondPlayerCardPower)
     {
         Console.WriteLine("The first player has won the cards!");
         // The winner of the round gets both cards
-        firstPlayerDeck.Enqueue(firstPlayerCard);
-        firstPlayerDeck.Enqueue(secondPlayerCard);
+        foreach (var card in pool)
+        {
+            firstPlayerDeck.Enqueue(card);
+        }
     }
     else
     {
         Console.WriteLine("The second player has won the cards!");
         // The winner of the round gets both cards
-        secondPlayerDeck.Enqueue(firstPlayerCard);
-        secondPlayerDeck.Enqueue(secondPlayerCard);
+        foreach (var card in pool)
+        {
+            secondPlayerDeck.Enqueue(card);
+        }
     }
 
     Console.WriteLine("================================================================================");
@@ -85,13 +133,13 @@ while (true)
     totalMoves++;
 
     //Check who is the winner
-    if (firstPlayerDeck.Count == 0)
+    if (!firstPlayerDeck.Any())
     {
         Console.WriteLine($"After a total of {totalMoves} moves, the second player has won!");
         break;
     }
 
-    if (secondPlayerDeck.Count == 0)
+    if (!secondPlayerDeck.Any())
     {
         Console.WriteLine($"After a total of {totalMoves} moves, the first player has won!");
         break;

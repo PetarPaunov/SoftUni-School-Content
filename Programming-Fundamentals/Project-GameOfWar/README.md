@@ -10,7 +10,8 @@ Rules:
 - Each turn, each **player draws one card** from their deck.               
 - The player that **drew the card with higher value** gets **both** cards.      
   - **Both cards** return to the **winner's deck**.         
-- If there is a **draw**, the **cards are thrown away**.                        
+- If there is a **draw**, the **cards are thrown away**.    
+  - Both players place the next three cards face down and then another card face-up. The owner of the higher face-up card gets all the cards on the table. 
 - The player who **collects all the cards wins**.  
 
 # Input and Output
