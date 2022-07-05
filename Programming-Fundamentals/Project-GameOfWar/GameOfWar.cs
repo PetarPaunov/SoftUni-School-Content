@@ -7,11 +7,11 @@ Console.WriteLine(@"
 ||                     Welcome to the Game of War!                            ||
 ||                                                                            ||
 || HOW TO PLAY:                                                               ||
-|| + Each of the two players is dealt one half of a shuffled deck of cards.   ||
+|| + Each of the two players are dealt one half of a shuffled deck of cards.  ||
 || + Each turn, each player draws one card from their deck.                   ||
 || + The player that drew the card with higher value gets both cards.         ||
 || + Both cards return to the winner's deck.                                  ||
-|| + If there is a draw, the cards are returned to the players deck.          ||
+|| + If there is a draw, the cards are returned to the player's deck.         ||
 ||    - Both players place the next three cards face down and then another    ||
 ||      card face-up. The owner of the higher face-up card gets all the cards ||
 ||      on the table.                                                         ||
