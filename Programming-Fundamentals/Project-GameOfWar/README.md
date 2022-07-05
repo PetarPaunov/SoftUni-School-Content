@@ -11,7 +11,7 @@ Rules:
 - The player that **drew the card with higher value** gets **both** cards.      
   - **Both cards** return to the **winner's deck**.         
 - If there is a **draw**, the **cards are thrown away**.    
-  - Both players place the next three cards face down and then another card face-up. The owner of the higher face-up card gets all the cards on the table. 
+  - Both players place the **next three cards face down** and then **another card face-up**. The owner of the **higher face-up** card **gets all the cards** on the table. 
 - The player who **collects all the cards wins**.  
 
 # Input and Output
@@ -23,14 +23,14 @@ The computer will **compare** the cards and **tell you which one has the higher 
 
 # Screenshots
 
-<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/177136595-c4616295-1e87-4571-aa3a-6566107c2960.png" />
+<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/177323960-02aaab18-1d8a-46fd-a3c2-4c924b126bb0.png" />
 
-<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/177137188-142cb3e8-7eee-4915-8d3b-787cede82ee3.png" />
+<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/177324156-01d46572-19c2-49ed-a5d9-6727ca994f32.png" />
 
 <img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/177001409-ee524d81-d018-4bac-8ffd-45547492c3c6.png" />
 
 # Live Demo
 You can play the game directly in your Web browser here:
 
-[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/177136327-998cee17-eca6-41a2-822a-a897bb36b32e.png" />](https://replit.com/@PetarPaunov/Game-of-WarCards#Main.cs)
+[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/177325385-4ae44df7-ddeb-4a85-9737-51ffd91398c2.png" />](https://replit.com/@PetarPaunov/Game-of-WarCards#Main.cs)
 
