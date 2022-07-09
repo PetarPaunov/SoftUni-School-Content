@@ -35,14 +35,8 @@ We handle all these situations using a series of **loops and checks**.
 
 <img alt="Image" width="450" src="https://user-images.githubusercontent.com/85368212/175283950-dc8187e7-8908-4e08-b4fd-4dc5071f1a01.png" />
 
-<img alt="Image" width="450" src="https://user-images.githubusercontent.com/85368212/175283608-9ff3f906-84ef-4c49-bd64-d75fd4afc8ae.png" />
+<img alt="Image" width="450" src="https://user-images.githubusercontent.com/85368212/178105290-4b67e262-8ccf-4e3b-929d-9b2d9c0a6968.png" />
 
 # Download and Try the Application
 
 Download: [here](https://github.com/PetarPaunov/SoftUni-School-Content/releases)
-
-
-
-
-
-  
