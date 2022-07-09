@@ -11,10 +11,9 @@ Console.WriteLine(@"
 || + Each turn, each player draws one card from their deck.                   ||
 || + The player that drew the card with higher value gets both cards.         ||
 || + Both cards return to the winner's deck.                                  ||
-|| + If there is a draw, the cards are returned to the player's deck.         ||
-||    - Both players place the next three cards face down and then another    ||
-||      card face-up. The owner of the higher face-up card gets all the cards ||
-||      on the table.                                                         ||
+|| + If there is a draw, both players place the next three cards face down    ||
+||        and then another card face-up. The owner of the higher face-up      ||
+||        card gets all the cards on the table.                               ||
 ||                                                                            ||
 || HOW TO WIN:                                                                ||
 || + The player who collects all the cards wins.                              ||
@@ -48,6 +47,7 @@ while (true)
     Console.ReadLine();
 
     // Draw and show the cards from both players' decks 
+
     string firstPlayerCard = firstPlayerDeck.Dequeue();
     Console.WriteLine($"First player has drawn: {firstPlayerCard}");
 
@@ -153,14 +153,15 @@ static List<string> GenerateDeck()
 {
     List<string> deck = new List<string>();
 
-    var faces = (CardFace[])Enum.GetValues(typeof(CardFace));
-    string[] suites = { "Spades", "Hearts", "Clubs", "Diamonds" };
+    CardFace[] faces = (CardFace[])Enum.GetValues(typeof(CardFace));
 
-    for (int i = 0; i < suites.Length; i++)
+    string[] suits = { "Spades", "Hearts", "Clubs", "Diamonds" };
+
+    for (int i = 0; i < suits.Length; i++)
     {
         for (int j = 0; j < faces.Length; j++)
         {
-            deck.Add($"{faces[j]} of {suites[i]}");
+            deck.Add($"{faces[j]} of {suits[i]}");
         }
     }
 
@@ -176,6 +177,7 @@ static void ShuffleDeck(List<string> deck)
         int firstCardIndex = random.Next(deck.Count);
 
         string tempCard = deck[firstCardIndex];
+
         deck[firstCardIndex] = deck[i];
         deck[i] = tempCard;
     }
@@ -183,7 +185,7 @@ static void ShuffleDeck(List<string> deck)
 
 static int CardPower(string cardName)
 {
-    var face = cardName.Split(" ").ToArray()[0];
+    string face = cardName.Split(" ").ToArray()[0];
 
     int cardPower = (int)Enum.Parse(typeof(CardFace), face);
 
