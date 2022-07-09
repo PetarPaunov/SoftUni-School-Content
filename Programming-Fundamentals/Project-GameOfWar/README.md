@@ -10,8 +10,7 @@ Rules:
 - Each turn, each **player draws one card** from their deck.               
 - The player that **drew the card with higher value** gets **both** cards.      
   - **Both cards** return to the **winner's deck**.         
-- If there is a **draw**, the **cards are thrown away**.    
-  - Both players place the **next three cards face down** and then **another card face-up**. The owner of the **higher face-up** card **gets all the cards** on the table. 
+- If there is a **draw**, both players place the **next three cards face down** and then **another card face-up**. The owner of the **higher face-up** card **gets all the cards** on the table. 
 - The player who **collects all the cards wins**.  
 
 # Input and Output
@@ -23,14 +22,14 @@ The computer will **compare** the cards and **tell you which one has the higher 
 
 # Screenshots
 
-<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/177323960-02aaab18-1d8a-46fd-a3c2-4c924b126bb0.png" />
+<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/178101979-e377a091-846d-4aca-872e-0789bc6a3e7b.png" />
 
-<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/177324156-01d46572-19c2-49ed-a5d9-6727ca994f32.png" />
+<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/178102001-99d9ed33-ee24-4a22-8e3a-89dec8f63fe8.png" />
 
 <img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/177001409-ee524d81-d018-4bac-8ffd-45547492c3c6.png" />
 
 # Live Demo
 You can play the game directly in your Web browser here:
 
-[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/177325385-4ae44df7-ddeb-4a85-9737-51ffd91398c2.png" />](https://replit.com/@PetarPaunov/Game-of-WarCards#Main.cs)
+[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/178102215-51412d8b-c126-4353-8a66-3df84a7c3dbf.png" />](https://replit.com/@PetarPaunov/Game-of-WarCards#Main.cs)
 
