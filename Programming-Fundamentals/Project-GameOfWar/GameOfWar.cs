@@ -1,6 +1,11 @@
 ﻿using System;
 using GameOfWar;
 using System.Collections.Generic;
+using System.Text;
+
+Console.OutputEncoding = Encoding.UTF8;
+Console.WriteLine("♠ ♣ ♥ ♦ ♤ ♧ ♡ ♢");
+
 
 Console.WriteLine(@"
 ================================================================================
@@ -25,16 +30,16 @@ Console.WriteLine(@"
 ================================================================================");
 
 // Generate and shuffle the deck
-List<string> deck = GenerateDeck();
+List<Card> deck = GenerateDeck();
 ShuffleDeck(deck);
 
-Queue<string> firstPlayerDeck = new Queue<string>();
-Queue<string> secondPlayerDeck = new Queue<string>();
+Queue<Card> firstPlayerDeck = new Queue<Card>();
+Queue<Card> secondPlayerDeck = new Queue<Card>();
 
 // Deal the cards to the players
 while (deck.Count > 0)
 {
-    string[] firstTwoDrawnCards = deck.Take(2).ToArray();
+    Card[] firstTwoDrawnCards = deck.Take(2).ToArray();
     deck.RemoveRange(0, 2);
     firstPlayerDeck.Enqueue(firstTwoDrawnCards[0]);
     secondPlayerDeck.Enqueue(firstTwoDrawnCards[1]);
@@ -48,26 +53,24 @@ while (true)
 
     // Draw and show the cards from both players' decks 
 
-    string firstPlayerCard = firstPlayerDeck.Dequeue();
+    Card firstPlayerCard = firstPlayerDeck.Dequeue();
     Console.WriteLine($"First player has drawn: {firstPlayerCard}");
 
-    string secondPlayerCard = secondPlayerDeck.Dequeue();
+    Card secondPlayerCard = secondPlayerDeck.Dequeue();
     Console.WriteLine($"Second player has drawn: {secondPlayerCard}");
 
-    Queue<string> pool = new Queue<string>();
+    Queue<Card> pool = new Queue<Card>();
 
     pool.Enqueue(firstPlayerCard);
     pool.Enqueue(secondPlayerCard);
 
     // Compare the cards and determine the winner of the current round
-    int firstPlayerCardPower = CardPower(firstPlayerCard);
-    int secondPlayerCardPower = CardPower(secondPlayerCard);
 
-    while (firstPlayerCardPower == secondPlayerCardPower)
+    while (firstPlayerCard.Power == secondPlayerCard.Power)
     {
         Console.WriteLine("WAR!");
 
-        //If one player has less than 4 cards, the other player automatically wins.
+        // If one player has less than 4 cards, the other player automatically wins.
         if (firstPlayerDeck.Count < 4)
         {
             while (firstPlayerDeck.Count > 0)
@@ -99,17 +102,15 @@ while (true)
 
         firstPlayerCard = firstPlayerDeck.Dequeue();
         Console.WriteLine($"First player has drawn: {firstPlayerCard}");
-        firstPlayerCardPower = CardPower(firstPlayerCard);
 
         secondPlayerCard = secondPlayerDeck.Dequeue();
         Console.WriteLine($"Second player has drawn: {secondPlayerCard}");
-        secondPlayerCardPower = CardPower(secondPlayerCard);
 
         pool.Enqueue(firstPlayerCard);
         pool.Enqueue(secondPlayerCard);
     }
 
-    if (firstPlayerCardPower > secondPlayerCardPower)
+    if (firstPlayerCard.Power > secondPlayerCard.Power)
     {
         Console.WriteLine("The first player has won the cards!");
         // The winner of the round gets both cards
@@ -149,26 +150,33 @@ while (true)
     }
 }
 
-static List<string> GenerateDeck()
+static List<Card> GenerateDeck()
 {
-    List<string> deck = new List<string>();
+    List<Card> deck = new List<Card>();
 
     CardFace[] faces = (CardFace[])Enum.GetValues(typeof(CardFace));
-
-    string[] suits = { "Spades", "Hearts", "Clubs", "Diamonds" };
+    char[] suits = { '♠', '♣', '♥', '♦' };
 
     for (int i = 0; i < suits.Length; i++)
     {
         for (int j = 0; j < faces.Length; j++)
         {
-            deck.Add($"{faces[j]} of {suits[i]}");
+            string face = faces[j].ToString();
+            int cardPower = (int)Enum.Parse(typeof(CardFace), face);
+
+            deck.Add(new Card
+            { 
+                Face = face[face.Length - 1], 
+                Suite = suits[i],
+                Power = cardPower,
+            });
         }
     }
 
     return deck;
 }
 
-static void ShuffleDeck(List<string> deck)
+static void ShuffleDeck(List<Card> deck)
 {
     Random random = new Random();
 
@@ -176,18 +184,9 @@ static void ShuffleDeck(List<string> deck)
     {
         int firstCardIndex = random.Next(deck.Count);
 
-        string tempCard = deck[firstCardIndex];
+        Card tempCard = deck[firstCardIndex];
 
         deck[firstCardIndex] = deck[i];
         deck[i] = tempCard;
     }
-}
-
-static int CardPower(string cardName)
-{
-    string face = cardName.Split(" ").ToArray()[0];
-
-    int cardPower = (int)Enum.Parse(typeof(CardFace), face);
-
-    return cardPower;
 }
