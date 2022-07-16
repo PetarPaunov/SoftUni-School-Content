@@ -2,7 +2,7 @@
 {
     public class Card
     {
-        public char Face { get; set; }
+        public string Face { get; set; }
 
         public char Suite { get; set; }
 
