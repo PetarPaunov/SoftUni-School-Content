@@ -137,7 +137,7 @@ void WarProcessing(Card firstPlayerCard, Card secondPlayerCard, Queue<Card> pool
             break;
         }
 
-        //Add three cards from both players to the pool
+        // Add three cards from both players to the pool
         AddCardsToPool(pool, firstPlayerDeck);
         AddCardsToPool(pool, secondPlayerDeck);
 
