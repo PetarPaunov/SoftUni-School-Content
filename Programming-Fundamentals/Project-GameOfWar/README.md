@@ -22,11 +22,11 @@ The computer will **compare** the cards and **tell you which one has the higher 
 
 # Screenshots
 
-<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/178101979-e377a091-846d-4aca-872e-0789bc6a3e7b.png" />
+<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/183280962-96239f54-98c3-4b81-ae2d-818d4b6c7ec9.png" />
 
-<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/178102001-99d9ed33-ee24-4a22-8e3a-89dec8f63fe8.png" />
+<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/183281030-6cbdc297-0560-4b50-b420-2a7bf9bd19ad.png" />
 
-<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/177001409-ee524d81-d018-4bac-8ffd-45547492c3c6.png" />
+<img alt="Image" width="525px" src="https://user-images.githubusercontent.com/85368212/183281002-83e23947-d6be-4e12-a76c-cce56d7f467f.png" />
 
 # Live Demo
 You can play the game directly in your Web browser here:
