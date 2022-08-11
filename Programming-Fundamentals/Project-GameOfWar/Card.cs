@@ -2,15 +2,21 @@
 {
     public class Card
     {
-        public string Face { get; set; }
+        public CardFace Face { get; set; }
 
-        public char Suite { get; set; }
-
-        public int Power { get; set; }
+        public CardSuit Suite { get; set; }
 
         public override string ToString()
         {
-            return $"{this.Face}{this.Suite}";
+            int face = (int)Enum.Parse(typeof(CardFace), this.Face.ToString());
+            var suite = (char)this.Suite;
+
+            if (face > 10)
+            {
+                return $"{this.Face.ToString()[0]}{suite}";
+            }
+
+            return $"{face}{suite}";
         }
     }
 }

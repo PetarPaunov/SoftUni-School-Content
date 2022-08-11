@@ -1,7 +1,8 @@
 ﻿using System;
-using GameOfWar;
 using System.Text;
 using System.Collections.Generic;
+
+using GameOfWar;
 
 Console.OutputEncoding = Encoding.UTF8;
 
@@ -35,30 +36,29 @@ Queue<Card> firstPlayerDeck = new Queue<Card>();
 Queue<Card> secondPlayerDeck = new Queue<Card>();
 
 // Deal the cards to the players
-DealCardsToPlayer();
+DealCardsToPlayers();
+
+Card firstPlayerCard;
+Card secondPlayerCard;
 
 int totalMoves = 0;
 
-while (!IsGameWinner())
+while (!GameHasWinner())
 {
     Console.ReadLine();
 
     // Draw and show the cards from both players' decks 
+    DrawPlayersCards();
 
-    Card firstPlayerCard = firstPlayerDeck.Dequeue();
-    Console.WriteLine($"First player has drawn: {firstPlayerCard}");
-
-    Card secondPlayerCard = secondPlayerDeck.Dequeue();
-    Console.WriteLine($"Second player has drawn: {secondPlayerCard}");
-
+    // Create and fill in a card pool
     Queue<Card> pool = new Queue<Card>();
-
     pool.Enqueue(firstPlayerCard);
     pool.Enqueue(secondPlayerCard);
 
     // Compare the cards and determine the winner of the current round
-    WarProcessing(firstPlayerCard, secondPlayerCard, pool);
-    DeterminingRoundWinner(firstPlayerCard, secondPlayerCard, pool);
+    ProcessWar(pool);
+
+    DetermineRoundWinner(pool);
 
     Console.WriteLine("================================================================================");
     Console.WriteLine($"First player currently has {firstPlayerDeck.Count} cards.");
@@ -73,29 +73,19 @@ static List<Card> GenerateDeck()
     List<Card> deck = new List<Card>();
 
     CardFace[] faces = (CardFace[])Enum.GetValues(typeof(CardFace));
-    char[] suits = { '♠', '♣', '♥', '♦' };
+    CardSuit[] suits = (CardSuit[])Enum.GetValues(typeof(CardSuit));
 
-    for (int i = 0; i < suits.Length; i++)
+    for (int suite = 0; suite < suits.Length; suite++)
     {
-        for (int j = 0; j < faces.Length; j++)
+        for (int face = 0; face < faces.Length; face++)
         {
-            string face = faces[j].ToString();
-            int cardPower = (int)Enum.Parse(typeof(CardFace), face);
-
-            if (cardPower == 10)
-            {
-                face = face.Substring(face.Length - 2, 2);
-            }
-            else
-            {
-                face = face.Substring(face.Length - 1, 1);
-            }
+            CardFace currentFace = faces[face];
+            CardSuit currentSuit = suits[suite];
 
             deck.Add(new Card
             { 
-                Face = face,
-                Suite = suits[i],
-                Power = cardPower,
+                Face = currentFace,
+                Suite = currentSuit
             });
         }
     }
@@ -118,82 +108,20 @@ static void ShuffleDeck(List<Card> deck)
     }
 }
 
-void WarProcessing(Card firstPlayerCard, Card secondPlayerCard, Queue<Card> pool)
+void DealCardsToPlayers()
 {
-    while (firstPlayerCard.Power == secondPlayerCard.Power)
+    while (deck.Count > 0)
     {
-        Console.WriteLine("WAR!");
-
-        // If one player has less than 4 cards, the other player automatically wins.
-        if (firstPlayerDeck.Count < 4)
-        {
-            AddCardsToWinnersDeck(firstPlayerDeck, secondPlayerDeck);
-            break;
-        }
-
-        if (secondPlayerDeck.Count < 4)
-        {
-            AddCardsToWinnersDeck(secondPlayerDeck, firstPlayerDeck);
-            break;
-        }
-
-        // Add three cards from both players to the pool
-        AddCardsToPool(pool, firstPlayerDeck);
-        AddCardsToPool(pool, secondPlayerDeck);
-
-        firstPlayerCard = firstPlayerDeck.Dequeue();
-        Console.WriteLine($"First player has drawn: {firstPlayerCard}");
-
-        secondPlayerCard = secondPlayerDeck.Dequeue();
-        Console.WriteLine($"Second player has drawn: {secondPlayerCard}");
-
-        pool.Enqueue(firstPlayerCard);
-        pool.Enqueue(secondPlayerCard);
+        Card[] firstTwoDrawnCards = deck.Take(2).ToArray();
+        deck.RemoveRange(0, 2);
+        firstPlayerDeck.Enqueue(firstTwoDrawnCards[0]);
+        secondPlayerDeck.Enqueue(firstTwoDrawnCards[1]);
     }
 }
 
-static void AddCardsToWinnersDeck(Queue<Card> firstDeck, Queue<Card> secondDeck)
+bool GameHasWinner()
 {
-    while (firstDeck.Count > 0)
-    {
-        secondDeck.Enqueue(firstDeck.Dequeue());
-    }
-}
-
-static void AddCardsToPool(Queue<Card> pool, Queue<Card> playerDeck)
-{
-    for (int i = 0; i < 3; i++)
-    {
-        pool.Enqueue(playerDeck.Dequeue());
-    }
-}
-
-void DeterminingRoundWinner(Card firstPlayerCard, Card secondPlayerCard, Queue<Card> pool)
-{
-    if (firstPlayerCard.Power > secondPlayerCard.Power)
-    {
-        Console.WriteLine("The first player has won the cards!");
-        // The winner of the round gets both cards
-        foreach (var card in pool)
-        {
-            firstPlayerDeck.Enqueue(card);
-        }
-    }
-    else
-    {
-        Console.WriteLine("The second player has won the cards!");
-        // The winner of the round gets both cards
-        foreach (var card in pool)
-        {
-            secondPlayerDeck.Enqueue(card);
-        }
-    }
-}
-
-bool IsGameWinner()
-{
-    // Check who is the winner
-
+    // Check if there is a winner, e.g. their oponent has no cards left
     if (!firstPlayerDeck.Any())
     {
         Console.WriteLine($"After a total of {totalMoves} moves, the second player has won!");
@@ -209,13 +137,87 @@ bool IsGameWinner()
     return false;
 }
 
-void DealCardsToPlayer()
+void DrawPlayersCards()
 {
-    while (deck.Count > 0)
+    firstPlayerCard = firstPlayerDeck.Dequeue();
+    Console.WriteLine($"First player has drawn: {firstPlayerCard}");
+
+    secondPlayerCard = secondPlayerDeck.Dequeue();
+    Console.WriteLine($"Second player has drawn: {secondPlayerCard}");
+}
+
+void ProcessWar(Queue<Card> pool)
+{
+    while ((int)firstPlayerCard.Face == (int)secondPlayerCard.Face)
     {
-        Card[] firstTwoDrawnCards = deck.Take(2).ToArray();
-        deck.RemoveRange(0, 2);
-        firstPlayerDeck.Enqueue(firstTwoDrawnCards[0]);
-        secondPlayerDeck.Enqueue(firstTwoDrawnCards[1]);
+        Console.WriteLine("WAR!");
+
+        // If one player has less than 4 cards, the other player automatically wins
+        if (firstPlayerDeck.Count < 4)
+        {
+            AddCardsToWinnerDeck(firstPlayerDeck, secondPlayerDeck);
+            Console.WriteLine($"First player does not have enough cards to contunue playing...");
+            break;
+        }
+
+        if (secondPlayerDeck.Count < 4)
+        {
+            AddCardsToWinnerDeck(secondPlayerDeck, firstPlayerDeck);
+            Console.WriteLine($"Second player does not have enough cards to contunue playing...");
+            break;
+        }
+
+        // Add three cards from both players to the pool
+        AddWarCardsToPool(pool);
+
+        firstPlayerCard = firstPlayerDeck.Dequeue();
+        Console.WriteLine($"First player has drawn: {firstPlayerCard}");
+
+        secondPlayerCard = secondPlayerDeck.Dequeue();
+        Console.WriteLine($"Second player has drawn: {secondPlayerCard}");
+
+        pool.Enqueue(firstPlayerCard);
+        pool.Enqueue(secondPlayerCard);
+    }
+}
+
+void DetermineRoundWinner(Queue<Card> pool)
+{
+    if ((int)firstPlayerCard.Face > (int)secondPlayerCard.Face)
+    {
+        Console.WriteLine("The first player has won the cards!");
+
+        // The winner of the round gets both cards
+        foreach (var card in pool)
+        {
+            firstPlayerDeck.Enqueue(card);
+        }
+    }
+    else
+    {
+        Console.WriteLine("The second player has won the cards!");
+
+        // The winner of the round gets both cards
+        foreach (var card in pool)
+        {
+            secondPlayerDeck.Enqueue(card);
+        }
+    }
+}
+
+void AddCardsToWinnerDeck(Queue<Card> loserDeck, Queue<Card> winnerDeck)
+{
+    while (loserDeck.Count > 0)
+    {
+        winnerDeck.Enqueue(loserDeck.Dequeue());
+    }
+}
+
+void AddWarCardsToPool(Queue<Card> pool)
+{
+    for (int i = 0; i < 3; i++)
+    {
+        pool.Enqueue(firstPlayerDeck.Dequeue());
+        pool.Enqueue(secondPlayerDeck.Dequeue());
     }
 }
