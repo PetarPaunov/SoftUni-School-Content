@@ -1,6 +1,6 @@
 ﻿using System;
 
-const string Win = @"
+const string WinScreenText = @"
 ┌───────────────────────────┐
 │                           │
 │ WW       WW  **  NN   N   │
@@ -14,7 +14,7 @@ const string Win = @"
 └───────────────────────────┘
 ";
 
-const string Loss = @"
+const string LossScreenText = @"
 ┌────────────────────────────────────┐
 │  LLL          OOOO    SSSS   SSSS  │
 │  LLL         OO  OO  SS  SS SS  SS │
@@ -32,6 +32,8 @@ const string Loss = @"
 const char Underscore = '_';
 
 const int MaxAllowedIncorrectCharacters = 6;
+
+const string WordsFileName = "words.txt";
 
 string[] wrongGuessesFrames =
 {
@@ -383,111 +385,56 @@ string[] deathAnimationFrames =
 	@" __/══════╩═══"
 };
 
-//Reading the words from the words.txt file
-string currentDirectory = Directory.GetCurrentDirectory();
-string projectDirectory = Directory.GetParent(currentDirectory).Parent.Parent.FullName;
-
-string path = $@"{projectDirectory}\words.txt";
-
-string[] words = File.ReadAllLines(path);
+string[] words = ReadWordsFromFile();
 
 Console.CursorVisible = false;
 
 while (true)
 {
-	string word = GetRandomWord(words);
+	// Initialize Game
+    string word = GetRandomWord(words);
+    string wordToGuess = new(Underscore, word.Length);
 
-	string wordToGuess = new String(Underscore, word.Length);
-	int incorrectGuessCount = 0;
+    int incorrectGuessCount = 0;
+    List<char> playerUsedLetters = new List<char>();
 
-	List<char> playerUsedLetters = new List<char>();
-	DrawOnTheConsole(wrongGuessesFrames, incorrectGuessCount, wordToGuess, playerUsedLetters);
+    DrawCurrentGameState(false, incorrectGuessCount, wordToGuess, playerUsedLetters);
 
-	char[] wordToGuessChar = wordToGuess.ToCharArray();
+	PlayGame(word, wordToGuess, incorrectGuessCount, playerUsedLetters);
 
-	string playerInput = Console.ReadLine();
+    Console.Write("If you want to play again, press [Enter]. Else, type 'quit': ");
+    string playerInput = Console.ReadLine();
 
-	while (true)
-	{
-		if (playerInput.Length != 1)
-        {
-            Console.WriteLine("You should type only a single character!");
-			playerInput = Console.ReadLine();
-			continue;
-        }
-		
-		var playerLetter = char.Parse(playerInput);
-
-		playerUsedLetters.Add(playerLetter);
-		
-		if (word.Contains(playerLetter))
-		{
-			//Going through all the letters and compare them with the player's letter
-			for (int i = 0; i < wordToGuessChar.Length; i++)
-			{
-				if (playerLetter == word[i])
-				{
-					wordToGuessChar[i] = playerLetter;
-				}
-			}
-		}
-		else
-		{
-			incorrectGuessCount++;
-		}
-
-		DrawOnTheConsole(wrongGuessesFrames, incorrectGuessCount, new string(wordToGuessChar), playerUsedLetters);
-
-		//Check if the player has guessed the word
-		if (!wordToGuessChar.Contains(Underscore))
-		{
-			Console.Clear();
-			Console.WriteLine(Win);
-			Console.WriteLine($"The word you guessed is [{word}].");
-			break;
-		}
-
-		//Check if the player has not guessed the word
-		if (incorrectGuessCount == MaxAllowedIncorrectCharacters)
-		{
-			Console.SetCursorPosition(0, 0);
-			DrawDeathAnimation(deathAnimationFrames);
-			Console.Clear();
-			Console.WriteLine(Loss);
-            Console.WriteLine($"The exact word is [{word}].");
-			break;
-		}
-
-		playerInput = Console.ReadLine();
-	}
-
-	Console.Write("If you want to play again, press [Enter]. Else, type 'quit': ");
-	playerInput = Console.ReadLine();
-
-	if (playerInput == "quit")
-	{
-		Console.Clear();
-		Console.WriteLine("Thank you for playing! Hangman was closed.");
+    if (playerInput == "quit")
+    {
+        Console.Clear();
+        Console.WriteLine("Thank you for playing! Hangman was closed.");
 		break;
-	}
+    }
 
-	Console.Clear();
+    Console.Clear();
 }
 
-static void DrawOnTheConsole(string[] wrongGuessesFrames, int incorrectGuess, string guessedWord, List<char> playerUsedLetters)
+void DrawCurrentGameState(bool inputIsInvalid, int incorrectGuess, string guessedWord, List<char> playerUsedLetters)
 {
-	//Drawing current state of the game
+	// Drawing current state of the game
 	Console.Clear();
 	Console.WriteLine(wrongGuessesFrames[incorrectGuess]);
 	Console.WriteLine($"Guess: {guessedWord}");
 	Console.WriteLine($"You have to guess {guessedWord.Length} symbols.");
     Console.WriteLine($"The following letters are used: {String.Join(", ", playerUsedLetters)}");
+	
+	if (inputIsInvalid)
+    {
+		Console.WriteLine("You should type only a single character!");
+	}
+	
 	Console.Write("Your symbol: ");
 }
 
 static void DrawDeathAnimation(string[] deathAnimation)
 {
-	//Render the death animation
+	// Render the death animation
 	for (int i = 0; i < deathAnimation.Length; i++)
 	{
 		Console.WriteLine(deathAnimation[i]);
@@ -498,8 +445,120 @@ static void DrawDeathAnimation(string[] deathAnimation)
 
 static string GetRandomWord(string[] words)
 {
-	//Selecting a word in a random index
+	// Select a word from a random index
 	Random random = new Random();
 	string word = words[random.Next(words.Length)];
 	return word;
+}
+
+static bool CheckIfSymbolIsContained(string word, char playerLetter)
+{
+	if (!word.Contains(playerLetter))
+    {
+		return false;
+    }
+
+	return true;
+}
+
+static string AddLetterToGuessWord(string word, char playerLetter, string wordToGuess)
+{
+	char[] wordToGuessCharArr = wordToGuess.ToCharArray();
+
+	// Go through all the letters and compare them with the player's letter
+	for (int i = 0; i < wordToGuess.Length; i++)
+	{
+		if (playerLetter == word[i])
+		{
+			wordToGuessCharArr[i] = playerLetter;
+		}
+	}
+
+	return new (wordToGuessCharArr);
+}
+
+static bool CheckIfPlayerWins(string wordToGuessChar)
+{
+	// Check if the player has guessed the word
+	if (wordToGuessChar.Contains(Underscore))
+	{
+		return false;
+	}
+
+	return true;
+}
+
+static bool CheckIfPlayerLoses(int incorrectGuessCount)
+{
+	// Check if the player has reached the maximum tries
+	if (incorrectGuessCount == MaxAllowedIncorrectCharacters)
+	{
+		return true;
+	}
+
+	return false;
+}
+
+static string[] ReadWordsFromFile()
+{
+	// Read the words from the words.txt file
+	string currentDirectory = Directory.GetCurrentDirectory();
+	string projectDirectory = Directory.GetParent(currentDirectory).Parent.Parent.FullName;
+
+	string path = $@"{projectDirectory}\{WordsFileName}";
+	string[] words = File.ReadAllLines(path);
+
+	return words;
+}
+
+void PlayGame(string word, string wordToGuess, int incorrectGuessCount, List<char> playerUsedLetters)
+{
+	while (true)
+    {
+		string playerInput = Console.ReadLine();
+
+		if (playerInput.Length != 1)
+		{
+			// Invalid player input --> read again
+			DrawCurrentGameState(true, incorrectGuessCount, wordToGuess, playerUsedLetters);
+			continue;
+		}
+
+		char playerLetter = char.Parse(playerInput);
+        playerUsedLetters.Add(playerLetter);
+
+        bool playerLetterIsContained = CheckIfSymbolIsContained(word, playerLetter);
+        if (playerLetterIsContained)
+        {
+            wordToGuess = AddLetterToGuessWord(word, playerLetter, wordToGuess);
+        }
+        else
+        {
+            incorrectGuessCount++;
+        }
+
+        DrawCurrentGameState(false, incorrectGuessCount, wordToGuess, playerUsedLetters);
+
+        bool playerWins = CheckIfPlayerWins(wordToGuess);
+        if (playerWins)
+        {
+            Console.Clear();
+            Console.WriteLine(WinScreenText);
+            Console.WriteLine($"The word you guessed is [{word}].");
+
+            break;
+        }
+
+        bool playerLoses = CheckIfPlayerLoses(incorrectGuessCount);
+        if (playerLoses)
+        {
+            Console.SetCursorPosition(0, 0);
+            DrawDeathAnimation(deathAnimationFrames);
+            Console.Clear();
+            Console.WriteLine(LossScreenText);
+            Console.WriteLine($"The exact word is [{word}].");
+
+            break;
+        }
+    }
 }
