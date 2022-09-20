@@ -1,7 +1,7 @@
 # The "Falling Rocks" Game
 A console-based C# implementation of the "**Falling Rocks**" game.
 
-<img alt="Image" width="400px" src="https://user-images.githubusercontent.com/85368212/191031152-c0708a91-5681-4e7e-9d0f-53b5ae562537.png" />
+<img alt="Image" width="400px" src="https://user-images.githubusercontent.com/85368212/191218923-b887ee16-f996-4e90-a3b2-a86559d15c8a.png" />
 
 The game **Falling Rocks** is a simple **time-waster** and your goal is to **avoid** the **falling rocks**, **surviving as much as possible** and making the **highest score** you can do.
 
