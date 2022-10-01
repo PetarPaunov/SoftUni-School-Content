@@ -3,7 +3,7 @@ A console-based C# implementation of the "**Falling Rocks**" game.
 
 <img alt="Image" width="400px" src="https://user-images.githubusercontent.com/85368212/191218923-b887ee16-f996-4e90-a3b2-a86559d15c8a.png" />
 
-The game **Falling Rocks** is a simple **time-waster** and your goal is to **avoid** the **falling rocks**, **surviving as much as possible** and making the **highest score** you can do.
+The game **Falling Rocks** is a simple **time-waster** and your goal is to **avoid** the **falling rocks**, **surviving as much as possible** and making the **highest score** you can.
 
 # Input
 - Enter rocks spawn rate level
@@ -26,3 +26,4 @@ The game **Falling Rocks** is a simple **time-waster** and your goal is to **avo
 You can play the game directly in your Web browser here:
 
 [<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/193291317-d0d86611-a24e-4cb5-bc19-f7f93f83ce54.png" />](https://replit.com/@PetarPaunov/Falling-Rocks#FallingRocks.sln)
+a
