@@ -13,3 +13,6 @@ A console-based C# implementation of the "**Conway's Game of Life**" game.
 - **Any dead cell** with **exactly three live neighbours** comes to **life**.
 
 The **initial configuration** of cells can be **created by a you**, but all **generations** thereafter are **completely determined** by the **above rules**. 
+
+
+**TODO...**
