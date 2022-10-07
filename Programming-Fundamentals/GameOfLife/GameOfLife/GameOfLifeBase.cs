@@ -1,7 +1,10 @@
-﻿namespace GameOfLife
+﻿using System.Text;
+
+namespace GameOfLife
 {
     public class GameOfLifeBase
     {
+        internal StringBuilder stringBuilder;
         public GameOfLifeBase(int x, int y)
         {
             X = x;
@@ -15,9 +18,8 @@
         public int[,] CurrentGeneration { get; set; }
         public int[,] NextGeneration { get; set; }
 
-        public void Draw(int boardSize, int windowWidth, int windowHeight)
+        public string Draw(int boardSize, int windowWidth)
         {
-            Console.CursorVisible = false;
             string[,] sceneBuffer = new string[boardSize, windowWidth];
 
             // Update Scene
@@ -27,7 +29,7 @@
                 {
                     if (CurrentGeneration[row, col] == 1)
                     {
-                        sceneBuffer[row, col] = "◦";
+                        sceneBuffer[row, col] = "□";
                     }
                     else
                     {
@@ -36,25 +38,25 @@
                 }
             }
 
+            stringBuilder = new StringBuilder();
             // Draw Scene
-            Console.SetCursorPosition(0, 0);
-
             for (int row = 0; row < sceneBuffer.GetLength(0); row++)
             {
                 for (int col = 0; col < sceneBuffer.GetLength(1); col++)
                 {
-                    Console.Write(sceneBuffer[row, col]);
+                    stringBuilder.Append(sceneBuffer[row, col]);
                 }
 
                 if (row >= boardSize - 1)
                 {
                     break;
                 }
-                Console.WriteLine();
+                stringBuilder.AppendLine();
             }
 
-            DrawMenuPanel(windowHeight, windowWidth);
-            Console.CursorVisible = true;
+            DrawMenuPanel(windowWidth);
+
+            return stringBuilder.ToString().TrimEnd();
         }
 
         public void SpawnNextGeneration()
@@ -87,10 +89,9 @@
             TransferNextGenerations();
         }
 
-        public virtual void DrawMenuPanel(int windowHeight, int windowWidth)
+        public virtual void DrawMenuPanel(int windowWidth)
         {
-            Console.SetCursorPosition(0, windowHeight - 5);
-            Console.WriteLine(new String('=', windowWidth));
+            stringBuilder.AppendLine(new String('=', windowWidth));
         }
 
         private void TransferNextGenerations()
@@ -113,19 +114,8 @@
             {
                 for (int col = -1; col <= 1; col++)
                 {
-                    if (x + row < 0 || x + row >= X)
+                    if (IsOutOfBoundariesOrSameCell(x, y, row, col))
                     {
-                        // Out of bounds
-                        continue;
-                    }
-                    if (y + col < 0 || y + col >= Y)
-                    {
-                        // Out of bounds
-                        continue;
-                    }
-                    if (x + row == x && y + col == y)
-                    {
-                        // Same Cell
                         continue;
                     }
 
@@ -135,6 +125,27 @@
             }
 
             return liveNeighbours;
+        }
+
+        private bool IsOutOfBoundariesOrSameCell(int x, int y, int row, int col)
+        {
+            if (x + row < 0 || x + row >= X)
+            {
+                // Out of boundaries
+                return true;
+            }
+            if (y + col < 0 || y + col >= Y)
+            {
+                // Out of boundaries
+                return true;
+            }
+            if (x + row == x && y + col == y)
+            {
+                // Same cell
+                return true;
+            }
+
+            return false;
         }
     }
 }

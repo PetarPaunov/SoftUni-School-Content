@@ -13,8 +13,10 @@
         {
         }
 
-        public void Move(ConsoleKeyInfo key, int sizeOfBoard, int windowWidth, int windowHeight)
+        public string Move(ConsoleKeyInfo key, int sizeOfBoard, int windowWidth, int windowHeight)
         {
+            string generationToReturn = "";
+
             switch (key.Key)
             {
                 case ConsoleKey.LeftArrow:
@@ -51,40 +53,41 @@
                     if (CurrentGeneration[cellPositionX, cellPositionY] == 1)
                     {
                         CurrentGeneration[cellPositionX, cellPositionY] = 0;
-                        Draw(sizeOfBoard, windowWidth, windowHeight);
                     }
                     //Current cell is dead, turn it alive
                     else
                     {
                         CurrentGeneration[cellPositionX, cellPositionY] = 1;
-                        Draw(sizeOfBoard, windowWidth, windowHeight);
                     }
                     //Write the current cell and set the correct position to the cursor
                     if (cellPositionX >= 0 && cellPositionX < CurrentGeneration.GetLength(0))
                     {
                         Console.SetCursorPosition(cursorPositionX, cursorPositionY);
                     }
-                    break;
+                    generationToReturn = Draw(sizeOfBoard, windowWidth);
+                    break; 
                 case ConsoleKey.Enter:
-                    ResetLife();
-                    Draw(sizeOfBoard, windowWidth, windowHeight);
+                    ClearBoard();
+                    generationToReturn = Draw(sizeOfBoard, windowWidth);
                     if (cellPositionX >= 0 && cellPositionX < CurrentGeneration.GetLength(0))
                     {
                         Console.SetCursorPosition(cursorPositionX, cursorPositionY);
                     }
                     break;
             }
+
+            return generationToReturn;
         }
 
-        public override void DrawMenuPanel(int windowHeight, int windowWidth)
+        public override void DrawMenuPanel(int windowWidth)
         {
-            base.DrawMenuPanel(windowHeight, windowWidth);
-            Console.WriteLine("[Arrow keys] to move             [Enter] Reset the life");
-            Console.WriteLine("[Spacebar] Toggle cell           [Escape] Start menue ");
-            Console.WriteLine("[Backspace] Starts/Stop the life");
+            base.DrawMenuPanel(windowWidth);
+            stringBuilder.AppendLine("[Arrow keys] to move             [Enter] Clear the board");
+            stringBuilder.AppendLine("[Spacebar] Toggle cell           [Escape] Start menu");
+            stringBuilder.AppendLine("[Backspace] Start/stop the life");
         }
 
-        private void ResetLife()
+        private void ClearBoard()
         {
             for (int row = 0; row < CurrentGeneration.GetLength(0); row++)
             {

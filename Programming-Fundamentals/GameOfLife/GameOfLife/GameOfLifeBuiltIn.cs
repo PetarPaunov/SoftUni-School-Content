@@ -28,39 +28,32 @@
             {
                 for (int col = 0; col < Y; col++)
                 {
-                    if (random.Next(1, 101) < 70)
-                    {
-                        CurrentGeneration[row, col] = 0;
-                    }
-                    else
-                    {
-                        CurrentGeneration[row, col] = 1;
-                    }
+                    CurrentGeneration[row, col] = random.Next(0, 2);
                 }
             }
         }
 
-        public override void DrawMenuPanel(int windowHeight, int windowWidth)
+        public override void DrawMenuPanel(int windowWidth)
         {
-            base.DrawMenuPanel(windowHeight, windowWidth);
-            Console.WriteLine("[F1] Generate random cell state   [F2] Pulsar field");
-            Console.WriteLine("[Backspace] Starts/Stop the life  [F3] Glider gun field");
-            Console.WriteLine("[Escape] Start menue              [F4] Living forever field");
+            base.DrawMenuPanel(windowWidth);
+            stringBuilder.AppendLine("[F1] Generate random cell state   [F2] Pulsar field");
+            stringBuilder.AppendLine("[Backspace] Start/stop the life   [F3] Glider gun field");
+            stringBuilder.AppendLine("[Escape] Start menu               [F4] Living forever field");
         }
 
         private int[,] GetFieldAsTextFile(string fileName, int windowWidth, int sizeOfBoard)
         {
-            var textFile = File.ReadAllText(fileName).Split(",").ToArray();
+            string[] textFile = File.ReadAllText(fileName).Split(",").ToArray();
 
-            var field = new int[sizeOfBoard, windowWidth];
+            int[,] field = new int[sizeOfBoard, windowWidth];
 
             for (int row = 0; row < field.GetLength(0); row++)
             {
                 for (int col = 0; col < field.GetLength(1) - 1; col++)
                 {
-                    var curretRow = textFile[row].ToCharArray();
+                    char[] currentRow = textFile[row].ToCharArray();
 
-                    if (curretRow[col] == 'X')
+                    if (currentRow[col] == 'X')
                     {
                         field[row, col] = 1;
                     }

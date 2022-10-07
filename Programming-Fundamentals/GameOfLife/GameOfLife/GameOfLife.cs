@@ -6,13 +6,14 @@ const int WindowHeight = 30;
 const int WindowWidth = 60;
 const int SizeOfMenuePanel = 5;
 const int BoardSize = WindowHeight - SizeOfMenuePanel;
+const int LifeProcessSpeed = 120;
 
 SetWindowProperties();
 
 while (true)
 {
     Console.Clear();
-    Console.WriteLine("Choose to create your own field or test the built-in fields");
+    Console.Write("Choose to create your own field or test the built-in fields");
     StartMenuPanel();
 
     ConsoleKeyInfo key = Console.ReadKey();
@@ -39,10 +40,10 @@ void SetWindowProperties()
 
 void StartMenuPanel()
 {
-    Console.SetCursorPosition(0, WindowHeight - 5);
+    Console.SetCursorPosition(0, WindowHeight - SizeOfMenuePanel);
     Console.WriteLine(new String('=', WindowWidth));
     Console.WriteLine("[O] Create own field");
-    Console.Write("[B] Building a test field");
+    Console.Write("[B] Test the build-in fields");
 }
 
 void CreateOwnField()
@@ -51,10 +52,13 @@ void CreateOwnField()
 
     Console.CursorVisible = true;
 
-    gameOfLife.Draw(BoardSize, WindowWidth, WindowHeight);
+    Console.SetCursorPosition(0, 0);
+    Console.WriteLine(gameOfLife.Draw(BoardSize, WindowWidth));
 
     while (true)
     {
+        Console.CursorVisible = true;
+
         ConsoleKeyInfo key = Console.ReadKey();
 
         if (key.Key == ConsoleKey.Escape)
@@ -64,7 +68,16 @@ void CreateOwnField()
 
         while (key.Key != ConsoleKey.Backspace)
         {
-            gameOfLife.Move(key, BoardSize, WindowWidth, WindowHeight);
+            string generation = gameOfLife.Move(key, BoardSize, WindowWidth, WindowHeight);
+
+            if (generation == "")
+            {
+                key = Console.ReadKey();
+                continue;
+            }
+
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine(generation);
             key = Console.ReadKey();
         }
 
@@ -78,7 +91,7 @@ void CreateOwnField()
 void BuiltInFields()
 {
     GameOfLifeBuiltIn gameOfLife = new GameOfLifeBuiltIn(BoardSize, WindowWidth);
-    gameOfLife.Draw(BoardSize, WindowWidth, WindowHeight);
+    Console.WriteLine(gameOfLife.Draw(BoardSize, WindowWidth));
 
     while (true)
     {
@@ -92,7 +105,8 @@ void BuiltInFields()
         if (key.Key == ConsoleKey.F1)
         {
             gameOfLife.GenerateRandomLifeSeed();
-            gameOfLife.Draw(BoardSize, WindowWidth, WindowHeight);
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine(gameOfLife.Draw(BoardSize, WindowWidth));
 
             continue;
         }
@@ -130,14 +144,19 @@ void BuiltInFields()
 
 void LifeProcess(GameOfLifeBase gameOfLife)
 {
-    gameOfLife.Draw(BoardSize, WindowWidth, WindowHeight);
+    Console.CursorVisible = false;
+
+    Console.SetCursorPosition(0, 0);
+    Console.WriteLine(gameOfLife.Draw(BoardSize, WindowWidth));
+
     gameOfLife.SpawnNextGeneration();
 
-    Thread.Sleep(120);
+    Thread.Sleep(LifeProcessSpeed);
 }
 
 void GenerateField(GameOfLifeBuiltIn gameOfLife, string fileName)
 {
     gameOfLife.GenerateField(fileName, WindowWidth, BoardSize);
-    gameOfLife.Draw(BoardSize, WindowWidth, WindowHeight);
+    Console.SetCursorPosition(0, 0);
+    Console.WriteLine(gameOfLife.Draw(BoardSize, WindowWidth));
 }
