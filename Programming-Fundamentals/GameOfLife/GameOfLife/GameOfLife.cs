@@ -1,4 +1,5 @@
 ﻿using GameOfLife;
+using System.Text;
 
 Console.OutputEncoding = System.Text.Encoding.Unicode;
 
@@ -13,8 +14,7 @@ SetWindowProperties();
 while (true)
 {
     Console.Clear();
-    Console.Write("Choose to create your own field or test the built-in fields");
-    StartMenuPanel();
+    Console.WriteLine(StartMenuPanel());
 
     ConsoleKeyInfo key = Console.ReadKey();
     Console.Clear();
@@ -38,12 +38,22 @@ void SetWindowProperties()
     Console.BufferWidth = Console.WindowWidth = WindowWidth;
 }
 
-void StartMenuPanel()
+string StartMenuPanel()
 {
-    Console.SetCursorPosition(0, WindowHeight - SizeOfMenuePanel);
-    Console.WriteLine(new String('=', WindowWidth));
-    Console.WriteLine("[O] Create own field");
-    Console.Write("[B] Test the build-in fields");
+    StringBuilder stringBuilder = new StringBuilder();
+
+    stringBuilder.AppendLine("Choose to create your own field or test the built-in fields");
+
+    for (int row = 0; row < BoardSize - 1; row++)
+    {
+        stringBuilder.AppendLine(new String(' ', WindowWidth));
+    }
+
+    stringBuilder.AppendLine(new String('=', WindowWidth));
+    stringBuilder.AppendLine("[O] Create own field");
+    stringBuilder.Append("[B] Test the build-in fields");
+
+    return stringBuilder.ToString().TrimEnd();
 }
 
 void CreateOwnField()
@@ -59,7 +69,7 @@ void CreateOwnField()
     {
         Console.CursorVisible = true;
 
-        ConsoleKeyInfo key = Console.ReadKey();
+        ConsoleKeyInfo key = Console.ReadKey(true);
 
         if (key.Key == ConsoleKey.Escape)
         {
@@ -81,9 +91,31 @@ void CreateOwnField()
             key = Console.ReadKey();
         }
 
-        while (Console.KeyAvailable == false || Console.ReadKey().Key != ConsoleKey.Backspace)
+        bool hasToStop = false;
+
+        while (Console.KeyAvailable == false)
         {
             LifeProcess(gameOfLife);
+            if (Console.KeyAvailable == true)
+            {
+                key = Console.ReadKey(true);
+
+                if (key.Key == ConsoleKey.Escape)
+                {
+                    hasToStop = true;
+                    break;
+                }
+
+                if (key.Key == ConsoleKey.Backspace)
+                {
+                    break;
+                }
+            }
+        }
+
+        if (hasToStop)
+        {
+            break;
         }
     }
 }
@@ -95,7 +127,7 @@ void BuiltInFields()
 
     while (true)
     {
-        ConsoleKeyInfo key = Console.ReadKey();
+        ConsoleKeyInfo key = Console.ReadKey(true);
 
         if (key.Key == ConsoleKey.Escape)
         {
@@ -135,9 +167,31 @@ void BuiltInFields()
             continue;
         }
 
-        while (Console.KeyAvailable == false || Console.ReadKey().Key != ConsoleKey.Backspace)
+        bool hasToStop = false;
+
+        while (Console.KeyAvailable == false)
         {
             LifeProcess(gameOfLife);
+            if (Console.KeyAvailable == true)
+            {
+                key = Console.ReadKey(true);
+
+                if (key.Key == ConsoleKey.Escape)
+                {
+                    hasToStop = true;
+                    break;
+                }
+
+                if (key.Key == ConsoleKey.Backspace)
+                {
+                    break;
+                }
+            }
+        }
+
+        if (hasToStop)
+        {
+            break;
         }
     }
 }
