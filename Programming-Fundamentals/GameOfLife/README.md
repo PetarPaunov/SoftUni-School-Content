@@ -14,5 +14,26 @@ A console-based C# implementation of the "**Conway's Game of Life**" game.
 
 The **initial configuration** of cells can be **created by a you**, but all **generations** thereafter are **completely determined** by the **above rules**. 
 
+# Controls
+- Press `[O]` to create your own field.
+  - `[Arrow keys]` to move the cursor.
+  - `[Spacebar]` toggle the cell.
+  - `[Backspace]` start/stop the life.
+  - `[Enter]` clear the board.
+  - `[Escape]` go to start menu.
+- Press `[B]` to test the build-in fields.
+  - `[F1]` generate random cell field.
+  - `[F2]` pulsar field build-in field.
+  - `[F3]` glider gun field build-in field.
+  - `[F4]` living forever field build-in field.
+  - `[Backspace]` start/stop the life.
+  - `[Escape]` go to start menu.
 
-**TODO...**
+[Source Code](GameOfLife.cs)
+
+# Screenshots
+
+<img alt="Image" width="500px" src="" />
+
+# Live Demo
+You can play the game directly in your Web browser here:
