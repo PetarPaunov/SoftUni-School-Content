@@ -33,7 +33,12 @@ The **initial configuration** of cells can be **created by a you**, but all **ge
 
 # Screenshots
 
-<img alt="Image" width="500px" src="" />
+<img alt="Image" width="500px" src="https://user-images.githubusercontent.com/85368212/194705331-9060c8f7-26cd-4f6c-9246-f51132fe8bc6.png" />
+<img alt="Image" width="500px" src="https://user-images.githubusercontent.com/85368212/194705381-c7cb3eb6-e877-43c9-be3d-bd43f4052002.png" />
+<img alt="Image" width="500px" src="https://user-images.githubusercontent.com/85368212/194705438-cecb5a3c-a116-45d4-bd9e-ef70ef5e1ca0.png" />
+<img alt="Image" width="500px" src="https://user-images.githubusercontent.com/85368212/194705477-20188cec-d8db-4080-a634-bd214fc5779e.png" />
 
 # Live Demo
 You can play the game directly in your Web browser here:
+
+[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/194705655-9b4942ac-3a17-49e6-a7be-2a86d449a83f.png" />](https://replit.com/@PetarPaunov/GameOfLifeTest#GameOfLife.cs)
