@@ -1,12 +1,12 @@
 ﻿using GameOfLife;
 using System.Text;
 
-Console.OutputEncoding = System.Text.Encoding.Unicode;
+Console.OutputEncoding = Encoding.Unicode;
 
-const int WindowHeight = 30;
-const int WindowWidth = 60;
-const int SizeOfMenuePanel = 5;
-const int BoardSize = WindowHeight - SizeOfMenuePanel;
+const int WindowHeight = 35;
+const int WindowWidth = 70;
+const int SizeOfMenuPanel = 5;
+const int BoardSize = WindowHeight - SizeOfMenuPanel;
 const int LifeProcessSpeed = 120;
 
 SetWindowProperties();
@@ -14,9 +14,10 @@ SetWindowProperties();
 while (true)
 {
     Console.Clear();
-    Console.WriteLine(StartMenuPanel());
+    string menuPanel = StartMenuPanel();
+    Console.WriteLine(menuPanel);
 
-    ConsoleKeyInfo key = Console.ReadKey();
+    ConsoleKeyInfo key = Console.ReadKey(true);
     Console.Clear();
 
     if (key.Key == ConsoleKey.O)
@@ -76,24 +77,32 @@ void CreateOwnField()
             break;
         }
 
+        bool gameIsStopped = false;
+
         while (key.Key != ConsoleKey.Backspace)
         {
-            string generation = gameOfLife.Move(key, BoardSize, WindowWidth, WindowHeight);
+            string generation = gameOfLife.Move(key, BoardSize, WindowWidth);
+
+            if (key.Key == ConsoleKey.Escape)
+            {
+                gameIsStopped = true;
+                break;
+            }
 
             if (generation == "")
             {
-                key = Console.ReadKey();
+                key = Console.ReadKey(true);
                 continue;
             }
 
             Console.SetCursorPosition(0, 0);
             Console.WriteLine(generation);
-            key = Console.ReadKey();
+            key = Console.ReadKey(true);
         }
 
-        bool hasToStop = false;
+        bool keyIsBackspace = key.Key == ConsoleKey.Backspace ? true : false;
 
-        while (Console.KeyAvailable == false)
+        while (keyIsBackspace)
         {
             LifeProcess(gameOfLife);
             if (Console.KeyAvailable == true)
@@ -102,7 +111,7 @@ void CreateOwnField()
 
                 if (key.Key == ConsoleKey.Escape)
                 {
-                    hasToStop = true;
+                    gameIsStopped = true;
                     break;
                 }
 
@@ -113,7 +122,7 @@ void CreateOwnField()
             }
         }
 
-        if (hasToStop)
+        if (gameIsStopped)
         {
             break;
         }
@@ -167,9 +176,10 @@ void BuiltInFields()
             continue;
         }
 
-        bool hasToStop = false;
+        bool gameIsStopped = false;
+        bool keyIsBackspace = key.Key == ConsoleKey.Backspace ? true : false;
 
-        while (Console.KeyAvailable == false)
+        while (keyIsBackspace)
         {
             LifeProcess(gameOfLife);
             if (Console.KeyAvailable == true)
@@ -178,7 +188,7 @@ void BuiltInFields()
 
                 if (key.Key == ConsoleKey.Escape)
                 {
-                    hasToStop = true;
+                    gameIsStopped = true;
                     break;
                 }
 
@@ -189,7 +199,7 @@ void BuiltInFields()
             }
         }
 
-        if (hasToStop)
+        if (gameIsStopped)
         {
             break;
         }

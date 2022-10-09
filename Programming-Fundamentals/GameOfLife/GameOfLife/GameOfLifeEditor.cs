@@ -13,23 +13,23 @@
         {
         }
 
-        public string Move(ConsoleKeyInfo key, int sizeOfBoard, int windowWidth, int windowHeight)
+        public string Move(ConsoleKeyInfo key, int sizeOfBoard, int windowWidth)
         {
             string generationToReturn = "";
 
             switch (key.Key)
             {
                 case ConsoleKey.LeftArrow:
-                    if (cellPositionY > 0)
+                    if (cursorPositionX - 2 > 0)
                     {
-                        Console.SetCursorPosition(cursorPositionX -= 1, cursorPositionY);
+                        Console.SetCursorPosition(cursorPositionX -= 2, cursorPositionY);
                         cellPositionY--;
                     }
                     break;
                 case ConsoleKey.RightArrow:
-                    if (cellPositionY < CurrentGeneration.GetLength(1) - 1)
+                    if (cursorPositionX + 2 < CurrentGeneration.GetLength(1) - 1)
                     {
-                        Console.SetCursorPosition(cursorPositionX += 1, cursorPositionY);
+                        Console.SetCursorPosition(cursorPositionX += 2, cursorPositionY);
                         cellPositionY++;
                     }
                     break;
@@ -73,6 +73,9 @@
                     {
                         Console.SetCursorPosition(cursorPositionX, cursorPositionY);
                     }
+                    break;
+                default:
+                    generationToReturn = Draw(sizeOfBoard, windowWidth);
                     break;
             }
 

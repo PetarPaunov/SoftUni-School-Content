@@ -20,7 +20,7 @@ namespace GameOfLife
 
         public string Draw(int boardSize, int windowWidth)
         {
-            string[,] sceneBuffer = new string[boardSize, windowWidth];
+            string[,] sceneBuffer = new string[boardSize, windowWidth / 2];
 
             // Update Scene
             for (int row = 0; row < sceneBuffer.GetLength(0); row++)
@@ -29,11 +29,11 @@ namespace GameOfLife
                 {
                     if (CurrentGeneration[row, col] == 1)
                     {
-                        sceneBuffer[row, col] = "□";
+                        sceneBuffer[row, col] = "□ ";
                     }
                     else
                     {
-                        sceneBuffer[row, col] = " ";
+                        sceneBuffer[row, col] = "  ";
                     }
                 }
             }
