@@ -34,11 +34,11 @@ The **initial configuration** of cells can be **created by a you**, but all **ge
 # Screenshots
 
 <img alt="Image" width="500px" src="https://user-images.githubusercontent.com/85368212/194705331-9060c8f7-26cd-4f6c-9246-f51132fe8bc6.png" />
-<img alt="Image" width="500px" src="https://user-images.githubusercontent.com/85368212/194705381-c7cb3eb6-e877-43c9-be3d-bd43f4052002.png" />
-<img alt="Image" width="500px" src="https://user-images.githubusercontent.com/85368212/194705438-cecb5a3c-a116-45d4-bd9e-ef70ef5e1ca0.png" />
-<img alt="Image" width="500px" src="https://user-images.githubusercontent.com/85368212/194705477-20188cec-d8db-4080-a634-bd214fc5779e.png" />
+<img alt="Image" width="500px" src="https://user-images.githubusercontent.com/85368212/194762155-a9b27635-4b27-45dc-8ab2-599db20a28d1.png" />
+<img alt="Image" width="500px" src="https://user-images.githubusercontent.com/85368212/194762157-a0a97606-8be0-4c5d-8e02-b5b3c3450158.png" />
+<img alt="Image" width="500px" src="https://user-images.githubusercontent.com/85368212/194762160-f942657d-1e47-4a9e-8c9e-c6b0100a7f50.png" />
 
 # Live Demo
 You can play the game directly in your Web browser here:
 
-[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/194705655-9b4942ac-3a17-49e6-a7be-2a86d449a83f.png" />](https://replit.com/@PetarPaunov/GameOfLifeTest#GameOfLife.cs)
+[<img alt="Play Button" src="https://user-images.githubusercontent.com/85368212/194762162-c4538fff-6d3f-4357-ac89-81a0c60e9e68.png" />](https://replit.com/@PetarPaunov/GameOfLife-1#GameOfLife.cs)
