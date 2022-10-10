@@ -16,18 +16,18 @@ The **initial configuration** of cells can be **created by a you**, but all **ge
 
 # Controls
 - Press `[O]` to **create your own field**.
-  - `[Arrow keys]` to **move the cursor**.
-  - `[Spacebar]` **toggle the cell**.
-  - `[Backspace]` **start/stop** the **life**.
-  - `[Enter]` **clear** the **board**.
-  - `[Escape]` go to **start menu**.
+  - `[Arrow keys]` -> **move the cursor**.
+  - `[Spacebar]` -> **toggle the cell**.
+  - `[Backspace]` -> **start/stop** the **life**.
+  - `[Enter]` -> **clear** the **board**.
+  - `[Escape]` -> go to **start menu**.
 - Press `[B]` to **test the build-in fields**.
   - `[F1]` **generate random field**.
-  - `[F2]` **pulsar** - build-in field.
-  - `[F3]` **glider gun** - build-in field.
-  - `[F4]` **living forever** - build-in field.
-  - `[Backspace]` **start/stop** the **life**.
-  - `[Escape]` go to **start menu**.
+  - `[F2]` generate **pulsar** field (build-in).
+  - `[F3]` generate **glider gun** field (build-in).
+  - `[F4]` generate **living forever** field (build-in).
+  - `[Backspace]` -> **start/stop** the **life**.
+  - `[Escape]` -> go to **start menu**.
 
 [Source Code](GameOfLife.cs)
 
