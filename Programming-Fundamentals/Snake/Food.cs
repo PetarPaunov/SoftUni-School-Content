@@ -1,23 +1,21 @@
-﻿namespace Snake
+﻿namespace SnakeGame
 {
     public class Food
     {
-        private Random random;
-        private char[] foodSymbols;
+        private static char[] foodSymbols = new char[] { '#', '@', '%', '*', '&' };
 
         public Food(int windowHeight, int windowWidth)
         {
-            this.foodSymbols = new char[] { '#', '@', '%', '*', '&' };
-            this.random = new Random();
+            Random random = new Random();
 
-            this.XFoodCoordinate = random.Next(1, windowHeight);
-            this.YFoodCoordinate = random.Next(1, windowWidth);
+            this.XCoordinate = random.Next(2, windowHeight);
+            this.YCoordinate = random.Next(2, windowWidth);
 
-            this.FoodSymbol = this.foodSymbols[random.Next(0, this.foodSymbols.Length)];
+            this.Symbol = foodSymbols[random.Next(0, foodSymbols.Length)];
         }
 
-        public int XFoodCoordinate { get; set; }
-        public int YFoodCoordinate { get; set; }
-        public char FoodSymbol { get; set; }
+        public int XCoordinate { get; set; }
+        public int YCoordinate { get; set; }
+        public char Symbol { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Snake
+﻿namespace SnakeGame
 {
     public class Position
     {
